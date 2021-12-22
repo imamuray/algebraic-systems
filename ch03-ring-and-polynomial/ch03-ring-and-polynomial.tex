@@ -1,0 +1,201 @@
+\documentclass[uplatex,dvipdfmx,9pt]{beamer}
+\usepackage{bxdpx-beamer}  % dvipdfmx 対応
+\usepackage{pxjahyper}     % しおりの和文対応
+\usepackage[T1]{fontenc}    % フォント: T1
+\usepackage{amsmath}       % 数式用
+\usepackage[all]{xy}       % 図式
+\usepackage{mathtools}
+\usepackage{newtxtext, newtxmath}
+
+\renewcommand{\kanjifamilydefault}{\gtdefault} % 和文をゴシックフに
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme[onlymath]{serif}
+
+\usetheme{Antibes}
+\usecolortheme{dolphin}
+\setbeamertemplate{footline}[frame number] % ページ数表示 
+\setbeamertemplate{navigation symbols}  % ナビゲーションシンボル消去
+
+% 数学記号
+\newcommand{\defarrow}{\overset{\mathrm{def}}{\Leftrightarrow}}
+\newcommand{\nsubgroup}{\vartriangleleft} % 正規部分群
+\newcommand{\notnsubgroup}{\ntriangleleft} % 正規部分群の否定
+\newcommand{\inverse}[1]{#1^{-1}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\lt}{\ensuremath <}
+\newcommand{\gt}{\ensuremath >}
+\newcommand{\generator}[1]{\langle#1\rangle}
+
+\newcommand{\sscount}{\textsection \thesubsection}
+
+% 教科書の番号付け
+\newcounter{textThmCount}
+\newcounter{textLemCount}
+\renewcommand{\thetextLemCount}{\Alph{textLemCount}}
+\newcounter{textExmCount}
+
+\setbeamertemplate{theorems}[numbered]  % 定理に番号をつける
+\theoremstyle{definition} % 斜体にならないようにする
+\newtheorem{defn}{Def.}[subsection] % 定義
+% \newtheorem{cor}{Cor.}[subsection] % 系
+\newtheorem{thm}{Thm.}[subsection] % 定理
+\newtheorem{thmText}[textThmCount]{Thm.}
+\newtheorem{corText}{Cor.}[textThmCount] % 系
+\newtheorem{lemText}[textLemCount]{Lem.} % 補題
+\theoremstyle{example}
+\newtheorem{exm}{Exm.}[subsection]
+\newtheorem{exmText}[textExmCount]{Exm.}
+
+% その他
+% Rem. : 注意
+
+% セクション開始毎に目次追加
+\AtBeginSubsection[]{
+    \begin{frame}
+        \tableofcontents[currentsubsection]
+    \end{frame}
+}
+
+%------------------------
+
+\title{代数系入門}
+\subtitle{第3章 環と多項式}
+\author{今村勇輝}
+
+\begin{document}
+  \begin{frame}[plain]
+    \titlepage
+  \end{frame}
+
+  % beamer では chapter が使えないので section から始める
+  \section{第3章 環と多項式}
+
+    \subsection{\sscount 環とその例}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+
+        \begin{defn}
+          $R$ : 集合, $R \ne \emptyset$, \\
+          $R \times R \to R, (a, b) \mapsto a + b, (a, b) \mapsto ab$
+          \begin{enumerate}
+            \item $R$ : 加法について可換群
+            \item $\forall a, b, c \in R \Rightarrow (ab)c = a(bc)$
+            \item $\forall a, b, c, d \in R \Rightarrow a(b + c) = ab + ac, (b + c)a = ba + ca$
+            \item $\exists e \in R \st \forall a \in R, ea = ae = a$
+          \end{enumerate}
+          $\defarrow$ $R$ : \alert{環}(ring)
+        \end{defn}
+
+        \begin{defn}
+          $R$: 環 \\
+          \begin{itemize}
+            \item $\exists! e_+ \in R \st \forall a \in R, e_+ + a = a \defarrow 0 \coloneqq e_+$ : $R$の\alert{零元}
+            \item $\exists! a' \in R \st a \in R, a + a' = 0 \defarrow -a \coloneqq a'$
+          \end{itemize}
+        \end{defn}
+
+        \begin{defn}
+          $R$ : 環, $\forall a, b \in R \Rightarrow ab = ba$ $\defarrow$ $R$ : \alert{可換環}
+        \end{defn}
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thm}
+          $R$ : 環, $\exists! e \in R \st \forall a \in R, ea = ae = e$ $\defarrow$ $1 \coloneqq e$ : $R$の\alert{単位元}
+        \end{thm}
+
+        \begin{exmText}
+          $\mathbb{Z}$ : 可換環 : \alert{有理整数環}
+        \end{exmText}
+
+        \begin{exmText}
+          $\mathbb{Q}, \mathbb{R}, \mathbb{C}$ : 可換環
+        \end{exmText}
+
+        \begin{exmText}
+          $[0, 1] \subset \mathbb{R}, R = \{f \mid f\colon [0, 1] \to [0, 1]\},$ \\
+          $f, g \in R, \forall t \in [0, 1], (f + g)(t) = f(t) + g(t), (fg)(t) = f(t)g(t)$ $\Rightarrow$ $R$ : 可換環
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $\forall R : \text{環}, \forall S : \text{集合}, S \ne \emptyset, M(S, R) = \{f \mid f\colon S \to R\},$ \\
+          $f, g \in M(S, R), \forall x \in S, (f + g)(x) = f(x) + g(x), (fg)(x) = f(x)g(x) \Rightarrow M(S, R) : \text{環}$
+        \end{exmText}
+
+        \begin{defn}
+          $0 \in M(S, R)$ : $S$から$R$の\alert{零写像} \\
+        \end{defn}
+        \underline{Rem.} $\forall x \in S, 0(x) = 0_R$
+
+        \begin{defn}
+          $\forall A$ : 加法群, $f\colon A \to A$ : hom. : \alert{自己準同型写像, 自己準同型}(endomorphism) \\
+          $End(A) \coloneqq \{f \mid f\colon A \to A : \text{hom.}\}$
+        \end{defn}
+
+        \begin{exmText}
+          $\forall A$ : 加法群, \\
+          $f, g \in End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(x)g(x) \Rightarrow End(A) : \text{環}$
+        \end{exmText}
+        \underline{Rem.} $End(A)$ : \alert{自己準同型環}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $R$ : 環
+          \begin{enumerate}
+            \item $0 \in R, \forall a \in R \Rightarrow a0 = 0a = 0$ 
+            \item $\forall a, b \in R \Rightarrow a(-b) = (-a)b = -ab$
+            \item $\forall a, b \in R \Rightarrow (-a)(-b) = ab$
+            \item $\forall a, b, c \in R \Rightarrow a(b-c) = ab - ac, (b-c)a = ba - ca$
+            \item $a_1, \cdots, a_m, b_1, \cdots, b_n \in R \Rightarrow (a_1 + \cdots + a_m)(b_1 + \cdots + b_m) = \displaystyle\sum_{i=1}^m\sum_{j=1}^n a_ib_j$
+          \end{enumerate}
+        \end{thm}
+          
+      \end{frame}
+
+    \subsection{\sscount 整域, 体}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount イデアルと商環}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}$}{Z}の商環}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 準同型写像}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 商の体}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 多項式環}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 体の上の多項式, 単項イデアル整域}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 素元分解とその一意性}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}[i]$}{Z[i]}の素元}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 多項式の根, 代数的閉体}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}$または$\mathbb{Q}$}{ZまたはQ}の上の多項式}
+    \setcounter{textExmCount}{0}
+
+    \subsection{\sscount 多変数の多項式}
+    \setcounter{textExmCount}{0}
+
+\end{document}
