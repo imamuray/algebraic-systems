@@ -25,6 +25,8 @@
 \newcommand{\lt}{\ensuremath <}
 \newcommand{\gt}{\ensuremath >}
 \newcommand{\generator}[1]{\langle#1\rangle}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Aut}{\operatorname{Aut}}
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -81,7 +83,7 @@
           \begin{enumerate}
             \item $R$ : 加法について可換群
             \item $\forall a, b, c \in R \Rightarrow (ab)c = a(bc)$
-            \item $\forall a, b, c, d \in R \Rightarrow a(b + c) = ab + ac, (b + c)a = ba + ca$
+            \item $\forall a, b, c \in R \Rightarrow a(b + c) = ab + ac, (b + c)a = ba + ca$
             \item $\exists e \in R \st \forall a \in R, ea = ae = a$
           \end{enumerate}
           $\defarrow$ $R$ : \alert{環}(ring)
@@ -91,7 +93,7 @@
           $R$: 環 \\
           \begin{itemize}
             \item $\exists! e_+ \in R \st \forall a \in R, e_+ + a = a \defarrow 0 \coloneqq e_+$ : $R$の\alert{零元}
-            \item $\exists! a' \in R \st a \in R, a + a' = 0 \defarrow -a \coloneqq a'$
+            \item $\forall a \in R, \exists! a' \in R \st a + a' = 0 \defarrow -a \coloneqq a'$
           \end{itemize}
         \end{defn}
 
@@ -130,20 +132,23 @@
         \end{exmText}
 
         \begin{defn}
-          $0 \in M(S, R)$ : $S$から$R$の\alert{零写像} \\
+          \begin{itemize}
+            \item $0 \in M(S, R)$ : $S$から$R$の\alert{零写像}
+            \item $-f \in R, \forall x \in S, (-f)(x) = -f(x)$
+          \end{itemize}
         \end{defn}
         \underline{Rem.} $\forall x \in S, 0(x) = 0_R$
 
         \begin{defn}
           $\forall A$ : 加法群, $f\colon A \to A$ : hom. : \alert{自己準同型写像, 自己準同型}(endomorphism) \\
-          $End(A) \coloneqq \{f \mid f\colon A \to A : \text{hom.}\}$
+          $\End(A) \coloneqq \{f \mid f\colon A \to A : \text{hom.}\}$
         \end{defn}
 
         \begin{exmText}
           $\forall A$ : 加法群, \\
-          $f, g \in End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(x)g(x) \Rightarrow End(A) : \text{環}$
+          $f, g \in \End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(g(x)) \Rightarrow \End(A) : \text{環}$
         \end{exmText}
-        \underline{Rem.} $End(A)$ : \alert{自己準同型環}
+        \underline{Rem.} $\End(A)$ : \alert{自己準同型環}
         
       \end{frame}
 
@@ -164,6 +169,166 @@
 
     \subsection{\sscount 整域, 体}
     \setcounter{textExmCount}{0}
+
+    \begin{frame}
+
+      \begin{thm}
+        $R$ : 環, $0, 1 \in R$ \\
+        $1 = 0 \Rightarrow R = \{0\} \; (\because \forall a \in R, a = 1a = 0a = 0)$
+      \end{thm}
+
+      \begin{defn}
+        $R$ : 環, $0, 1 \in R, 1 = 0$ $\defarrow$ $R$ : \alert{零環}
+      \end{defn}
+      \underline{Rem.} 今後, $R$は零環ではないとする.
+
+      \begin{defn}
+        $\exists a, b \in R \st a \ne 0, b \ne 0, ab = 0 \defarrow a, b : \text{$R$の\alert{零因子}}$ ($a$ : 左零因子, $b$ : 右零因子)
+      \end{defn}
+
+      \begin{defn}
+        $\forall a, b \in R, a \ne 0, b \ne 0 \Rightarrow ab \ne 0, R : \text{可換}$ $\defarrow$ $R$ : \alert{整域}
+      \end{defn}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $\mathbb{Z}$ : 整域
+      \end{exmText}
+
+      \begin{exmText}
+        \textsection 1 Exm. 3 は整域ではない
+      \end{exmText}
+
+      \begin{defn}
+        $a \in R, \exists b \in R \st ba = ab = 1$ $\defarrow$ $a$ : $R$の\alert{可逆元}または\alert{単元}, $\inverse{a} \coloneqq b$ : $a$の\alert{逆元}
+      \end{defn}
+
+      \begin{thm}
+        \begin{itemize}
+          \item $a \in R : \text{単元} \Rightarrow a \ne 0$
+          \item $a \in R : \text{単元} \Rightarrow \exists! \inverse{a} \in R \st \inverse{a}a = a\inverse{a} = 1$
+        \end{itemize}
+      \end{thm}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{lemText}
+        $R: \text{環}, G = \{a \in R \mid a: \text{$R$の単元}\} \Rightarrow G: \text{乗法に関して群}$
+      \end{lemText}
+
+      \begin{exmText}
+        $A$ : 加法群, $A \ne \{0\}$
+        \begin{itemize}
+          \item $f \in \End(A), f: \text{単元} \Rightarrow f: \text{iso.}$
+          \item $G = \{f \in \End(A) \mid f: \text{単元}\} \Rightarrow G = \Aut(A)$
+        \end{itemize}
+      \end{exmText}
+
+      \begin{defn}
+        $R$ : 環
+        \begin{itemize}
+          \item $\forall a \in R, a \ne 0 \Rightarrow a: \text{単元} \defarrow R: \text{\alert{斜体}}$
+          \item $R: \text{斜体}, \forall a, b \in R, ab = ba \defarrow R: \text{\alert{体}}$
+        \end{itemize}
+      \end{defn}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $R$: 環
+        \begin{itemize}
+          \item $R: \text{斜体} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して群}$
+          \item $R: \text{体} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して可換群}$
+        \end{itemize}
+      \end{thm}
+ 
+      \begin{exmText}
+        \begin{itemize}
+          \item $\mathbb{Z} : \text{環} \nRightarrow \mathbb{Z} : \text{体}$
+          \item $\mathbb{Q, R, C} : \text{環} \Rightarrow \mathbb{Q, R, C} : \text{体}$
+        \end{itemize}
+      \end{exmText}
+      \underline{Rem.} $\mathbb{Q}$ : \alert{有理数体}, $\mathbb{R}$ : \alert{実数体}, $\mathbb{C}$ : \alert{複素数体}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $\forall R : \text{体} \Rightarrow R : \text{整域}$
+      \end{thm}
+
+      \begin{lemText}
+        $R : \text{整域}, |R| \lt \infty \Rightarrow R : \text{体}$
+      \end{lemText}
+
+      \begin{defn}
+        $R$ : 環, $R' \subset R, R' \neq \emptyset$ \\
+        $R'$ : $R$で定義されている加法, 乗法に関して環, $1_R \in R'$ $\defarrow$ $R'$ : $R$の\alert{部分環}
+      \end{defn}
+
+      \begin{thm}
+        $R$ : 環, $R' \subset R$ \\
+        $R'$ : $R$の部分環 $\Leftrightarrow$ $1_R \in R', \forall a, b \in R' \Rightarrow -a, a+b, ab \in R'$
+      \end{thm}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $R'$ : $R$の部分環 \\
+        \begin{itemize}
+          \item $R'$ : 斜体 $\defarrow$ $R$の\alert{部分斜体}
+          \item $R'$ : 体 $\defarrow$ $R$の\alert{部分体}
+        \end{itemize}
+      \end{defn}
+
+      \begin{exmText}
+        \begin{itemize}
+          \item 環$\mathbb{Z}$ : 体$\mathbb{Q}$の部分環
+          \item 体$\mathbb{Q}$ : 体$\mathbb{R}$の部分体
+        \end{itemize}
+      \end{exmText}
+ 
+      \begin{exmText}
+        $R = \{f \mid f\colon [0,1] \to [0,1]\}$ (\textsection 1 Exm. 3 の環)
+        \begin{itemize}
+          \item $R' = \{f \mid f\colon [0,1] \to [0,1] : \text{連続関数}\}$ $\Rightarrow$ $R'$ : $R$の部分環
+          \item $R'' = \{f \mid f\colon [0,1] \to [0,1] : \text{微分可能関数}\}$ $\Rightarrow$ $R''$ : $R'$の部分環
+        \end{itemize}
+      \end{exmText}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $R$ : 斜体, $\forall a,b \in R \Rightarrow ab \neq ba$ $\defarrow$ $R$ : \alert{非可換体}
+      \end{defn}
+
+      \begin{exmText}
+        $\mathbb{C}$ : 複素数の加法群, $A = \mathbb{C} \times \mathbb{C}$
+        \begin{enumerate}
+          \item $\alpha, \beta \in \mathbb{C}, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End(A)$
+          \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : $\End(A)$の部分環
+          \item $Q$ : 非可換体
+        \end{enumerate}
+      \end{exmText}
+      \underline{Rem.} $Q$ : $\mathbb{R}$上の\alert{四元数環}
+
+      \begin{thm}
+        $R$ : 整域または斜体 $\Rightarrow$ $\exists 0, 1 \in R \st 0 \neq 1$
+      \end{thm}
+      
+    \end{frame}
 
     \subsection{\sscount イデアルと商環}
     \setcounter{textExmCount}{0}
