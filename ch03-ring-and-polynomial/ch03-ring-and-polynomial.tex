@@ -160,7 +160,7 @@
             \item $0 \in R, \forall a \in R \Rightarrow a0 = 0a = 0$ 
             \item $\forall a, b \in R \Rightarrow a(-b) = (-a)b = -ab$
             \item $\forall a, b \in R \Rightarrow (-a)(-b) = ab$
-            \item $\forall a, b, c \in R \Rightarrow a(b-c) = ab - ac, (b-c)a = ba - ca$
+            \item $\forall a, b, c \in R, b-c \coloneqq b+(-c) \Rightarrow a(b-c) = ab - ac, (b-c)a = ba - ca$
             \item $a_1, \cdots, a_m, b_1, \cdots, b_n \in R \Rightarrow (a_1 + \cdots + a_m)(b_1 + \cdots + b_m) = \displaystyle\sum_{i=1}^m\sum_{j=1}^n a_ib_j$
           \end{enumerate}
         \end{thm}
@@ -333,8 +333,202 @@
     \subsection{\sscount イデアルと商環}
     \setcounter{textExmCount}{0}
 
+    \begin{frame}
+
+      \begin{defn}
+        $R$ : 環, $J \subset R, J \neq \emptyset$
+        \begin{enumerate}
+          \item $\forall a, b \in J \Rightarrow a + b \in J$
+          \item $\forall a \in J \Rightarrow \forall r \in R, ra \in J$
+        \end{enumerate}
+        $\defarrow$ $J$ : $R$の\alert{左イデアル}
+      \end{defn}
+
+      \begin{thm}
+        $R$ : 環, $J \subset R, J \neq \emptyset$ \\
+        $J$ : $R$の左イデアル $\Leftrightarrow$ $J \le R$ : 加法部分群, $a \in J \Rightarrow \forall r \in R, ra \in J$
+      \end{thm}
+
+      \begin{defn}
+        $R$ : 環 \\
+        $J \le R$ : 加法部分群, $\forall a \in J \Rightarrow \forall r \in R, ar \in J$ $\defarrow$ $J$ : $R$の\alert{右イデアル}
+      \end{defn}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $J$ : $R$の左イデアルかつ右イデアル $\defarrow$ $J$ : $R$の\alert{イデアル}または\alert{両側イデアル}
+      \end{defn}
+      \underline{Rem.} $R$が可換なら, 左イデアル, 右イデアル, 両側イデアルは一致する
+ 
+      \begin{exmText}
+        $R = \{f \mid f\colon [0,1] \to [0,1] : \text{実数値連続関数}\}$ \\
+        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$の左イデアル
+      \end{exmText}
+
+      \begin{exmText}
+        $n \in \mathbb{Z}, n \ge 0$ $\Rightarrow$ $n\mathbb{Z}$ : 環$\mathbb{Z}$のイデアル
+      \end{exmText}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $R$ : 環
+        \begin{itemize}
+          \item $a \in R, J_a = \{xa \mid x \in R\} \Rightarrow J_a : \text{左イデアル}$
+          \item $a_1, \cdots, a_n \in R, J = \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots x_n \in R\} \Rightarrow J : \text{左イデアル}$
+        \end{itemize}
+      \end{exmText}
+
+      \begin{defn}
+        $R$ : 環
+        \begin{itemize}
+          \item $a \in R, Ra \text{(または$(a)$)} \coloneqq \{xa \mid x \in R\}$ : $a$によって\alert{生成}される\alert{単項左イデアル}
+          \item $a_1, \cdots, a_n \in R, (a_1, \cdots, a_n) \coloneqq \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots, x_n \in R\}$ \\
+                : $a_1, \cdots, a_n$によって\alert{生成}される左イデアル
+        \end{itemize}
+      \end{defn}
+
+      \begin{thm}
+        $\forall J : \text{$R$の左イデアル}, a_1, \cdots, a_n \in J \Rightarrow (a_1, \cdots, a_n) \subset J$
+      \end{thm}
+
+    \end{frame}
+
+    \begin{frame}
+
+       \begin{thm}
+        $R$ : 環
+        \begin{itemize}
+          \item $1 \in R \Rightarrow (1) = R$
+          \item $0 \in R \Rightarrow (0) = \{0\}$
+          \item $R, (0)$ : $R$の両側イデアル
+        \end{itemize}
+      \end{thm}
+
+      \begin{defn}
+        $J$ : $R$のイデアル, $J = \{0\}$ $\defarrow$ $0 \coloneqq J$ : \alert{零イデアル}
+      \end{defn}
+
+      \begin{thmText}
+        $R$ : 環, $R \neq \emptyset$ \\
+        $R$ : 斜体 $\Leftrightarrow$ $\forall J$ : $R$の左イデアル $\Rightarrow$ $J = R \; \text{or} \; 0$
+      \end{thmText}
+      \underline{Rem.} 右イデアルも同様に成り立つが, 両側イデアルの場合 $\Leftarrow$ は必ずしも成り立たない.
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{lemText}
+        $R$ : 環, $J$ : $R$の左イデアル \\
+        $\forall a, a', b, b' \in R, a \equiv a' \pmod{J}, b \equiv b' \pmod{J} \Rightarrow ab \equiv a'b' \pmod{J}$
+      \end{lemText}
+
+      \begin{thmText}
+        $R$ : 環, $J$ : $R$の左イデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
+        $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : 環
+      \end{thmText}
+
+      \begin{defn}
+        $R/J$ : $R$の$J$による\alert{剰余環}または\alert{商環}
+      \end{defn}
+
+      \begin{thm}
+        \begin{enumerate}
+          \item $R/J$ : 零環 $\Leftrightarrow$ $J = R$
+          \item $J = (0) \Rightarrow R/J = R$
+          \item $R$ : 可換環 $\Rightarrow$ $\forall R/J$ : 可換
+        \end{enumerate}
+      \end{thm}
+
+    \end{frame}
+
     \subsection{\sscount \texorpdfstring{ $\mathbb{Z}$}{Z}の商環}
     \setcounter{textExmCount}{0}
+
+    \begin{frame}
+      本節では特に有理数環$\mathbb{Z}$について考える.
+      
+      \begin{thm}
+        $n \ge 0, (n) \coloneqq n\mathbb{Z}$ : $\mathbb{Z}$のイデアル ($\because$ \textsection 3 Exm. 2) \\
+        $\forall J$ : $\mathbb{Z}$のイデアル $\Leftrightarrow$ $\exists n \in \mathbb{Z} \st n \ge 0, J = (n)$
+      \end{thm}
+
+      \begin{defn}
+        $n \ge 1, \mathbb{Z}_n \coloneqq \mathbb{Z} / (n)$ : 法$n$に関する$\mathbb{Z}$の商環
+      \end{defn}
+      \underline{Rem.} $|\mathbb{Z}_n| = n, \mathbb{Z}_1 = \{0\}$
+
+      \begin{defn}
+        $n \ge 2, \mathbb{Z}_n \ni \bar{a} \coloneqq a + (n)$
+      \end{defn}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1 \Rightarrow \forall a' \in a + (n), (a', n) = 1$
+      \end{thm}
+      \underline{Rem.} $\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
+
+      \begin{lemText}
+        $n \ge 2, \bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}$
+        \begin{itemize}
+          \item $(a, n) = 1 \Rightarrow \bar{a} : \text{unit}$
+          \item $(a, n) \neq 1 \Rightarrow \bar{a} : \text{零因子}$
+        \end{itemize}
+      \end{lemText}
+
+      \begin{thmText}
+        $n \ge 2$
+        \begin{itemize}
+          \item $n = p : \text{素数} \Rightarrow \mathbb{Z}_p : \text{体}$
+          \item $n : \text{素数でない} \Rightarrow \exists \bar{a} \in \mathbb{Z}_n \st \bar{a} : \text{零因子}$
+        \end{itemize}
+      \end{thmText}
+      \underline{Rem.} $\mathbb{Z}_2 = \{\bar{0}, \bar{1}\}$ : 体
+
+    \end{frame}
+
+    \begin{frame}
+ 
+      \begin{defn}
+        $n \ge 2, G = \{\bar{a} \in \mathbb{Z}_n \mid (a, n) = 1\} \Rightarrow G : \text{群} \; (\because \text{Lem. D})$ \\
+        $(\mathbb{Z} / n\mathbb{Z})^\times \coloneqq G$ : 法$n$に関する$\mathbb{Z}$の\alert{既約剰余類群}
+      \end{defn}
+
+      \begin{defn}
+        $\varphi(n) \coloneqq |\{a \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
+      \end{defn}
+
+      \begin{thm}
+        $|(\mathbb{Z} / n\mathbb{Z})^\times| = \varphi(n)$
+      \end{thm}
+
+      \begin{thm}[Euler]
+        $a, m \in \mathbb{Z}, m \ge 0, (a, m) = 1 \Rightarrow a^{\varphi(m)} \equiv 1 \pmod{m}$
+      \end{thm}
+
+    \end{frame}
+
+    \begin{frame}
+ 
+      \begin{thm}
+        $p$ : 素数
+        \begin{itemize}
+          \item $|(\mathbb{Z} / p\mathbb{Z})^\times| = p - 1$
+          \item $(\mathbb{Z} / p\mathbb{Z})^\times = \{\bar{a} \in \mathbb{Z}_p \mid \bar{a} \neq \bar{0}\}$
+          \item $(\mathbb{Z} / p\mathbb{Z})^\times$ : 巡回群
+        \end{itemize}
+      \end{thm}
+      
+    \end{frame}
 
     \subsection{\sscount 準同型写像}
     \setcounter{textExmCount}{0}
