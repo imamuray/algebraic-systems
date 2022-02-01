@@ -425,12 +425,12 @@
     \begin{frame}
 
       \begin{lemText}
-        $R$ : 環, $J$ : $R$の左イデアル \\
+        $R$ : 環, $J$ : $R$のイデアル \\
         $\forall a, a', b, b' \in R, a \equiv a' \pmod{J}, b \equiv b' \pmod{J} \Rightarrow ab \equiv a'b' \pmod{J}$
       \end{lemText}
 
       \begin{thmText}
-        $R$ : 環, $J$ : $R$の左イデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
+        $R$ : 環, $J$ : $R$のイデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
         $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : 環
       \end{thmText}
 
@@ -570,6 +570,41 @@
         $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut(R)$
       \end{exmText}
       
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $R$ : 環, $J$ : $R$のイデアル \\
+        $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \text{hom.}$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
+      \end{exmText}
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow f(0_R) = 0_{R'}, f(-x) = -f(x)$
+      \end{thm}
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow R' \supset f(R) : \text{環}$
+      \end{thm}
+      
+    \end{frame}
+
+    \begin{frame}
+      
+      \begin{defn}
+        $R, R'$ : 環, $f\colon R \to R'$ : hom. \\
+        $\inverse{f}(0) = \{x \in R \mid f(x) = 0\}$ $\defarrow$ $\ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
+      \end{defn}
+      \underline{Rem.} $\ker f$は加法群の準同型としての$f$の核にほかならない
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow \ker f : \text{$R$の両側イデアル}$
+      \end{thm}
+      \underline{Rem.} $R'= \{0\} \Leftrightarrow \ker f = R$
+
     \end{frame}
 
     \subsection{\sscount 商の体}
