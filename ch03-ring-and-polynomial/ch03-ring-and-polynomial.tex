@@ -365,8 +365,9 @@
       \underline{Rem.} $R$が可換なら, 左イデアル, 右イデアル, 両側イデアルは一致する
  
       \begin{exmText}
+        \hypertarget{exmText3-1}{}
         $R = \{f \mid f\colon [0,1] \to [0,1] : \text{実数値連続関数}\}$ \\
-        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$の左イデアル
+        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$のイデアル
       \end{exmText}
 
       \begin{exmText}
@@ -604,8 +605,48 @@
         $R, R'$ : 環 \\
         $f\colon R \to R' : \text{hom.} \Rightarrow \Ker f : \text{$R$の両側イデアル}$
       \end{thm}
-      \underline{Rem.} $R'= \{0\} \Leftrightarrow \Ker f = R$
 
+      \begin{thm}
+        $R, R'$ : 環, $f\colon R \to R' : \text{hom.}$ \\
+        $R'= \{0\} \Leftrightarrow \ker f = R$
+      \end{thm}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
+        $F\colon f \mapsto f(c)$ : hom. (Exm. 1), $J_c = \{f \in R \mid f(c) = 0\}$ (\hyperlink{exmText3-1}{\textsection 3 Exm. 1}) $\Rightarrow$ $\ker F = J_c$
+      \end{exmText}
+
+      \begin{exmText}
+        $R$ : 環 \\
+        $\forall J$ : $R$のイデアル, $f\colon R \to R/J$ $\Rightarrow$ $\ker f = J$
+      \end{exmText}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $R$ : 斜体, $R' \neq \emptyset$ : 環, $f\colon R \to R'$ : hom. $\Rightarrow$ $f$ : injective hom.
+      \end{thm}
+
+      \begin{thmText}[環の準同型定理]
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.}, \Ker f = J \Rightarrow g\colon R/J \to f(R) : \text{iso.} \; (R/J \cong f(R))$ 
+      \end{thmText}
+
+      \begin{thmText}
+         $R, R'$ : 環, $f\colon R \to R'$ : surjective hom., $\Ker f = J$
+        \begin{itemize}
+          \item $M$ : left ideal of $R$, $M'$ : left ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
+          \item $M$ : right ideal of $R$, $M'$ : right ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
+          \item $M$ : ideal of $R$ $\Leftrightarrow$ $M'$ : ideal of $R$, $R/M \cong R'/M'$
+        \end{itemize}       
+      \end{thmText}
+      
     \end{frame}
 
     \subsection{\sscount 商の体}
