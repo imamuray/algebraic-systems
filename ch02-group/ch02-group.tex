@@ -25,6 +25,8 @@
 \newcommand{\lt}{\ensuremath <}
 \newcommand{\gt}{\ensuremath >}
 \newcommand{\generator}[1]{\langle#1\rangle}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ker}{\operatorname{Ker}}
 
 % 教科書の番号付け
 \newcounter{textThmCount}
@@ -613,15 +615,15 @@
 
         \begin{defn}
           $f$ : hom. \\
-          $\ker f \coloneqq \{x \in G \mid f(x) = e'\}$ : $f$ の \alert{核} (kernel)
+          $\Ker f \coloneqq \{x \in G \mid f(x) = e'\}$ : $f$ の \alert{核} (Kernel)
         \end{defn}
 
         \begin{thm}
-          $\ker f \nsubgroup G$
+          $\Ker f \nsubgroup G$
         \end{thm}
 
         \begin{exmText}
-          $N \nsubgroup G, \varphi: G \to G/N \Rightarrow \ker \varphi = N$
+          $N \nsubgroup G, \varphi: G \to G/N \Rightarrow \Ker \varphi = N$
         \end{exmText}
 
       \end{frame}
@@ -629,24 +631,24 @@
       \begin{frame}
         
         \begin{thmText}
-          $f\colon G \to G' : \text{hom.}, \ker f = N, a,b \in G$ \\
+          $f\colon G \to G' : \text{hom.}, \Ker f = N, a,b \in G$ \\
           $f(a) = f(b) \Leftrightarrow a \equiv b \pmod{N}$
         \end{thmText}
 
         \begin{corText}
           $f\colon G \to G': \text{hom.} $ \\
-          $f\colon injective \Leftrightarrow \ker f = \{e\}$
+          $f\colon injective \Leftrightarrow \Ker f = \{e\}$
         \end{corText}
 
         \begin{thm}
-          $f\colon G \to G' : \text{hom.}, \ker f = N, f(G) = G'_0, g\colon G/N \to G'_0, aN \mapsto f(a)$ \\
+          $f\colon G \to G' : \text{hom.}, \Ker f = N, f(G) = G'_0, g\colon G/N \to G'_0, aN \mapsto f(a)$ \\
           $\Rightarrow g: \text{bijective} (\because \text{Thm.5})$
         \end{thm}
         \underline{Def.} $g$ : \alert{$f$ から誘導される全単射}
 
 
         \begin{thmText}[準同型定理]
-          $f\colon G \to G' : \text{hom.}, \ker f = N \Rightarrow g\colon G/N \to f(G): \text{iso.} (G/N \cong f(G))$
+          $f\colon G \to G' : \text{hom.}, \Ker f = N \Rightarrow g\colon G/N \to f(G): \text{iso.} (G/N \cong f(G))$
         \end{thmText}
 
       \end{frame}
@@ -654,7 +656,7 @@
       \begin{frame}
 
         \begin{exmText}
-          $f\colon \mathbb{C}^* \to \mathbb{R}^+, z \mapsto |z| : \text{hom.}, f(\mathbb{C}^*) = \mathbb{R}^+, \mathbb{T} := \ker f = \{z \in \mathbb{C}^* \mid |z| = 1\}$ \\
+          $f\colon \mathbb{C}^* \to \mathbb{R}^+, z \mapsto |z| : \text{hom.}, f(\mathbb{C}^*) = \mathbb{R}^+, \mathbb{T} := \Ker f = \{z \in \mathbb{C}^* \mid |z| = 1\}$ \\
           $\mathbb{C}^* / \mathbb{T} \cong \mathbb{R}^+ (\because \text{Thm.6})$
         \end{exmText}
 
@@ -663,12 +665,12 @@
         \begin{exmText}
           $\mathbb{R}, \mathbb{Z} : \text{加法群}, f\colon \mathbb{R} \to \mathbb{T}, \theta \mapsto z(2\pi\theta) : \text{hom.}$ \\
           $\mathbb{R} / \mathbb{Z} \cong \mathbb{T}$ \\
-          $\because f(\mathbb{R}) = \mathbb{T}, \ker f = \mathbb{Z}, (\because \theta \in \mathbb{Z} \Rightarrow z(2\pi\theta) = 0)$
+          $\because f(\mathbb{R}) = \mathbb{T}, \Ker f = \mathbb{Z}, (\because \theta \in \mathbb{Z} \Rightarrow z(2\pi\theta) = 0)$
         \end{exmText}
         \underline{Rem.} $\mathbb{R}/\mathbb{Z}, \mathbb{T}$ : 1次元の \alert{トーラス群}
 
         \begin{exmText}
-          $I\colon G \to G, I(G) = G, \ker I = \{e\}, f : \text{Exm.1}, f(G) = \{e\}, \ker f = G$ \\
+          $I\colon G \to G, I(G) = G, \Ker I = \{e\}, f : \text{Exm.1}, f(G) = \{e\}, \Ker f = G$ \\
           $G/\{e\} \cong G, G/G \cong \{e\}$
         \end{exmText}
         
@@ -699,7 +701,7 @@
       \begin{frame}
 
         \begin{thmText}[第1同型定理, 第3同型定理]
-          $f\colon G \to G'$ : surjective hom., $\ker f = N$ \\
+          $f\colon G \to G'$ : surjective hom., $\Ker f = N$ \\
           $\Omega = \{ H \mid H \le G, N \subset H \}, \Omega' = \{ H' \mid H' \le G' \}$ \\
           $\varphi\colon \Omega \to \Omega'(H \mapsto f(H))$, $\varphi'\colon \Omega' \to \Omega (H' \mapsto \inverse{f}(H'))$ \\
           (a1) $\varphi, \varphi'$: bijection, $\inverse{\varphi} = \varphi'$ \\
@@ -750,11 +752,11 @@
         \end{thm}
 
         \begin{thm}
-          $Aut(G) \coloneqq \{ f \in S(G) \mid f: \text{aut.} \} \le S(G)$
+          $\Aut(G) \coloneqq \{ f \in S(G) \mid f: \text{aut.} \} \le S(G)$
         \end{thm}
 
         \begin{defn}
-          $Aut(G)$ : $G$ の\alert{自己同型群}
+          $\Aut(G)$ : $G$ の\alert{自己同型群}
         \end{defn}
 
         \begin{exmText}
@@ -767,7 +769,7 @@
       \begin{frame}
         
         \begin{lemText}
-          $a \in G, \sigma_a \colon G \to G, x \mapsto ax\inverse{a} \Rightarrow \sigma_a \in Aut(G)$
+          $a \in G, \sigma_a \colon G \to G, x \mapsto ax\inverse{a} \Rightarrow \sigma_a \in \Aut(G)$
         \end{lemText}
         \underline{Rem.} $\sigma_a$が$I_G$と一致するのは, $a \in Z(G)$のとき ($\because ax\inverse{a} = x, ax = xa$) \\
 
@@ -1241,7 +1243,7 @@
       \begin{frame}
         
         \begin{thmText}
-          $H \le G$, $\rho \colon G \to S(G/H)$ : 置換表現, $N = \ker \rho$ \\
+          $H \le G$, $\rho \colon G \to S(G/H)$ : 置換表現, $N = \Ker \rho$ \\
           \begin{enumerate}
             \item $N \subset H$
             \item $\forall N_1 \nsubgroup G, N_1 \subset H \Rightarrow N_1 \subset N$

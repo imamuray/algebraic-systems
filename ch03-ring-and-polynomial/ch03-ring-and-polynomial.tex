@@ -27,6 +27,7 @@
 \newcommand{\generator}[1]{\langle#1\rangle}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ker}{\operatorname{Ker}}
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -595,15 +596,15 @@
       
       \begin{defn}
         $R, R'$ : 環, $f\colon R \to R'$ : hom. \\
-        $\inverse{f}(0) = \{x \in R \mid f(x) = 0\}$ $\defarrow$ $\ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
+        $\inverse{f}(0) = \{x \in R \mid f(x) = 0\}$ $\defarrow$ $\Ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
       \end{defn}
-      \underline{Rem.} $\ker f$は加法群の準同型としての$f$の核にほかならない
+      \underline{Rem.} $\Ker f$は加法群の準同型としての$f$の核にほかならない
 
       \begin{thm}
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.} \Rightarrow \ker f : \text{$R$の両側イデアル}$
+        $f\colon R \to R' : \text{hom.} \Rightarrow \Ker f : \text{$R$の両側イデアル}$
       \end{thm}
-      \underline{Rem.} $R'= \{0\} \Leftrightarrow \ker f = R$
+      \underline{Rem.} $R'= \{0\} \Leftrightarrow \Ker f = R$
 
     \end{frame}
 
