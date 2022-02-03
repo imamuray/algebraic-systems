@@ -443,7 +443,7 @@
       \begin{thm}
         \begin{enumerate}
           \item $R/J$ : 零環 $\Leftrightarrow$ $J = R$
-          \item $J = (0) \Rightarrow R/J = R$
+          \item $J = (0) \Rightarrow R/J \cong R$
           \item $R$ : 可換環 $\Rightarrow$ $\forall R/J$ : 可換
         \end{enumerate}
       \end{thm}
@@ -475,9 +475,9 @@
     \begin{frame}
 
       \begin{thm}
-        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1 \Rightarrow \forall a' \in a + (n), (a', n) = 1$
+        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1, \forall a' \in a + (n) \Rightarrow (a', n) = 1$
       \end{thm}
-      \underline{Rem.} $\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
+      \underline{Rem.} 上記$\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
 
       \begin{lemText}
         $n \ge 2, \bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}$
@@ -506,7 +506,7 @@
       \end{defn}
 
       \begin{defn}
-        $\varphi(n) \coloneqq |\{a \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
+        $\varphi(n) \coloneqq |\{a \in \mathbb{Z} \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
       \end{defn}
 
       \begin{thm}
@@ -514,7 +514,7 @@
       \end{thm}
 
       \begin{thm}[Euler]
-        $a, m \in \mathbb{Z}, m \ge 0, (a, m) = 1 \Rightarrow a^{\varphi(m)} \equiv 1 \pmod{m}$
+        $a, n \in \mathbb{Z}, n \ge 0, (a, n) = 1 \Rightarrow a^{\varphi(n)} \equiv 1 \pmod{n}$
       \end{thm}
 
     \end{frame}
@@ -529,6 +529,7 @@
           \item $(\mathbb{Z} / p\mathbb{Z})^\times$ : 巡回群
         \end{itemize}
       \end{thm}
+      これらの証明は体論と関係させたほうが都合がよいので第5章 \textsection 2で行う.
       
     \end{frame}
 
