@@ -27,6 +27,7 @@
 \newcommand{\generator}[1]{\langle#1\rangle}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ker}{\operatorname{Ker}}
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -339,19 +340,19 @@
         $R$ : 環, $J \subset R, J \neq \emptyset$
         \begin{enumerate}
           \item $\forall a, b \in J \Rightarrow a + b \in J$
-          \item $\forall a \in J \Rightarrow \forall r \in R, ra \in J$
+          \item $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
         \end{enumerate}
         $\defarrow$ $J$ : $R$の\alert{左イデアル}
       \end{defn}
 
       \begin{thm}
         $R$ : 環, $J \subset R, J \neq \emptyset$ \\
-        $J$ : $R$の左イデアル $\Leftrightarrow$ $J \le R$ : 加法部分群, $\forall a \in J \Rightarrow \forall r \in R, ra \in J$
+        $J$ : $R$の左イデアル $\Leftrightarrow$ $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
       \end{thm}
 
       \begin{defn}
         $R$ : 環 \\
-        $J \le R$ : 加法部分群, $\forall a \in J \Rightarrow \forall r \in R, ar \in J$ $\defarrow$ $J$ : $R$の\alert{右イデアル}
+        $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ar \in J$ $\defarrow$ $J$ : $R$の\alert{右イデアル}
       \end{defn}
 
     \end{frame}
@@ -364,8 +365,9 @@
       \underline{Rem.} $R$が可換なら, 左イデアル, 右イデアル, 両側イデアルは一致する
  
       \begin{exmText}
+        \hypertarget{exmText3-1}{}
         $R = \{f \mid f\colon [0,1] \to [0,1] : \text{実数値連続関数}\}$ \\
-        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$の左イデアル
+        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$のイデアル
       \end{exmText}
 
       \begin{exmText}
@@ -425,12 +427,12 @@
     \begin{frame}
 
       \begin{lemText}
-        $R$ : 環, $J$ : $R$の左イデアル \\
+        $R$ : 環, $J$ : $R$のイデアル \\
         $\forall a, a', b, b' \in R, a \equiv a' \pmod{J}, b \equiv b' \pmod{J} \Rightarrow ab \equiv a'b' \pmod{J}$
       \end{lemText}
 
       \begin{thmText}
-        $R$ : 環, $J$ : $R$の左イデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
+        $R$ : 環, $J$ : $R$のイデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
         $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : 環
       \end{thmText}
 
@@ -441,7 +443,7 @@
       \begin{thm}
         \begin{enumerate}
           \item $R/J$ : 零環 $\Leftrightarrow$ $J = R$
-          \item $J = (0) \Rightarrow R/J = R$
+          \item $J = (0) \Rightarrow R/J \cong R$
           \item $R$ : 可換環 $\Rightarrow$ $\forall R/J$ : 可換
         \end{enumerate}
       \end{thm}
@@ -473,9 +475,9 @@
     \begin{frame}
 
       \begin{thm}
-        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1 \Rightarrow \forall a' \in a + (n), (a', n) = 1$
+        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1, \forall a' \in a + (n) \Rightarrow (a', n) = 1$
       \end{thm}
-      \underline{Rem.} $\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
+      \underline{Rem.} 上記$\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
 
       \begin{lemText}
         $n \ge 2, \bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}$
@@ -504,7 +506,7 @@
       \end{defn}
 
       \begin{defn}
-        $\varphi(n) \coloneqq |\{a \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
+        $\varphi(n) \coloneqq |\{a \in \mathbb{Z} \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
       \end{defn}
 
       \begin{thm}
@@ -512,7 +514,7 @@
       \end{thm}
 
       \begin{thm}[Euler]
-        $a, m \in \mathbb{Z}, m \ge 0, (a, m) = 1 \Rightarrow a^{\varphi(m)} \equiv 1 \pmod{m}$
+        $a, n \in \mathbb{Z}, n \ge 0, (a, n) = 1 \Rightarrow a^{\varphi(n)} \equiv 1 \pmod{n}$
       \end{thm}
 
     \end{frame}
@@ -527,6 +529,7 @@
           \item $(\mathbb{Z} / p\mathbb{Z})^\times$ : 巡回群
         \end{itemize}
       \end{thm}
+      これらの証明は体論と関係させたほうが都合がよいので第5章 \textsection 2で行う.
       
     \end{frame}
 
@@ -569,6 +572,81 @@
         $R = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$ : 環 \\
         $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut(R)$
       \end{exmText}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $R$ : 環, $J$ : $R$のイデアル \\
+        $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \text{hom.}$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
+      \end{exmText}
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow f(0_R) = 0_{R'}, f(-x) = -f(x)$
+      \end{thm}
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow R' \supset f(R) : \text{環}$
+      \end{thm}
+      
+    \end{frame}
+
+    \begin{frame}
+      
+      \begin{defn}
+        $R, R'$ : 環, $f\colon R \to R'$ : hom. \\
+        $\inverse{f}(0) = \{x \in R \mid f(x) = 0\}$ $\defarrow$ $\Ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
+      \end{defn}
+      \underline{Rem.} $\Ker f$は加法群の準同型としての$f$の核にほかならない
+
+      \begin{thm}
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.} \Rightarrow \Ker f : \text{$R$の両側イデアル}$
+      \end{thm}
+
+      \begin{thm}
+        $R, R'$ : 環, $f\colon R \to R' : \text{hom.}$ \\
+        $R'= \{0\} \Leftrightarrow \ker f = R$
+      \end{thm}
+
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{exmText}
+        $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
+        $F\colon f \mapsto f(c)$ : hom. (Exm. 1), $J_c = \{f \in R \mid f(c) = 0\}$ (\hyperlink{exmText3-1}{\textsection 3 Exm. 1}) $\Rightarrow$ $\ker F = J_c$
+      \end{exmText}
+
+      \begin{exmText}
+        $R$ : 環 \\
+        $\forall J$ : $R$のイデアル, $f\colon R \to R/J$ $\Rightarrow$ $\ker f = J$
+      \end{exmText}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $R$ : 斜体, $R' \neq \emptyset$ : 環, $f\colon R \to R'$ : hom. $\Rightarrow$ $f$ : injective hom.
+      \end{thm}
+
+      \begin{thmText}[環の準同型定理]
+        $R, R'$ : 環 \\
+        $f\colon R \to R' : \text{hom.}, \Ker f = J \Rightarrow g\colon R/J \to f(R) : \text{iso.} \; (R/J \cong f(R))$ 
+      \end{thmText}
+
+      \begin{thmText}
+         $R, R'$ : 環, $f\colon R \to R'$ : surjective hom., $\Ker f = J$
+        \begin{itemize}
+          \item $M$ : left ideal of $R$, $M'$ : left ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
+          \item $M$ : right ideal of $R$, $M'$ : right ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
+          \item $M$ : ideal of $R$ $\Leftrightarrow$ $M'$ : ideal of $R$, $R/M \cong R'/M'$
+        \end{itemize}       
+      \end{thmText}
       
     \end{frame}
 
