@@ -501,12 +501,11 @@
     \begin{frame}
  
       \begin{defn}
-        $n \ge 2, G = \{\bar{a} \in \mathbb{Z}_n \mid (a, n) = 1\} \Rightarrow G : \text{群} \; (\because \text{Lem. D})$ \\
-        $(\mathbb{Z} / n\mathbb{Z})^\times \coloneqq G$ : 法$n$に関する$\mathbb{Z}$の\alert{既約剰余類群}
+        $(\mathbb{Z} / n\mathbb{Z})^\times \coloneqq \{\bar{a} \in \mathbb{Z}_n \mid (a, n) = 1\}$ : 法$n$に関する$\mathbb{Z}$の\alert{既約剰余類群}
       \end{defn}
 
       \begin{defn}
-        $\varphi(n) \coloneqq |\{a \in \mathbb{Z} \mid 1 \le a \le n, (n, a) = 1\}|$ : \alert{Eulerの関数}
+        $\varphi(n) \coloneqq |\{a \in \mathbb{Z} \mid 1 \le a \lt n, (n, a) = 1\}|$ : \alert{Eulerの関数}
       \end{defn}
 
       \begin{thm}
@@ -648,6 +647,74 @@
         \end{itemize}       
       \end{thmText}
       
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $R$ : ring, \; $J_L, J_R$ : left (right) ideal of $R$, \; $J_L, J_R \neq R$ \\
+        $\forall J : \text{left ideal of $R$} \Rightarrow J = R \; \text{or} \; J_L$ $\defarrow$ $J_L$ : $R$の\alert{極大左イデアル(maximal left ideal)}
+        $\forall J : \text{right ideal of $R$} \Rightarrow J = R \; \text{or} \; J_R$ $\defarrow$ $J_R$ : $R$の\alert{極大右イデアル(maximal right ideal)}
+      \end{defn}
+
+      \begin{defn}
+        $R$ : ring, \; $J_L, J_R$ : maximal left (right) ideal of $R$, \; $J_L, J_R \neq R$ \\
+        $R : \text{commutative} \Rightarrow J_L = J_R$ : \alert{極大イデアル(maximal ideal)}
+      \end{defn}
+
+      \begin{thmText}
+        $R$ : ring, \; $J$ : tow-sided ideal of $R$, \; $J \neq R$ \\
+        $R/J$ : skew field $\Leftrightarrow$ $J$ : maximal left ideal of $R$ $\Leftrightarrow$ $J$ : maximal right ideal of $R$
+      \end{thmText}
+
+      \begin{corText}
+        $R$ : commutative ring, \; $J$ : ideal of $R$, \; $J \neq R$ \\
+        $R/J$ field $\Leftrightarrow$ $J$ : maximal ideal of $R$
+      \end{corText}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{lemText}
+        $\forall R : \text{ring} \Rightarrow \exists! \mu\colon \mathbb{Z} \to R : \text{hom.} \st \mu(n) = n1_R$ 
+      \end{lemText}
+
+      \begin{thm}
+        $R$ : ring, $\mu\colon \mathbb{Z} \to R, n \mapsto n1_R$ \\
+        $\forall R' \subset R : \text{subring} \Rightarrow \mu(R) \subset R'$
+      \end{thm}
+
+      \begin{defn}
+        $\mu\colon \mathbb{Z} \to R, n \mapsto n1_R, \exists! m \ge 0 \st \Ker\mu = (m)$ $\defarrow$ $m$ : $R$の\alert{標数(characteristic)}
+      \end{defn}
+
+      \begin{thm}
+        $R$ : ring, $m$ : characteristic of $R$
+        \begin{itemize}
+          \item $m = 0 \Rightarrow \mu(R) \cong \mathbb{Z}$
+          \item $m > 0 \Rightarrow \mu(R) \cong \mathbb{Z}/(m) = \mathbb{Z}_m$
+        \end{itemize}
+      \end{thm}
+      
+    \end{frame}
+
+    \begin{frame}
+
+     \begin{thm}
+      $R$ : ring, $m$ : characteristic of $R$
+      \begin{itemize}
+        \item $R = \{0\} \Leftrightarrow m = 1$
+        \item $R \neq \{0\} \Rightarrow m = 0 \; \text{or} \; m \ge 2$
+        \item $m = 0 \Rightarrow 1_R \in R : \text{additive group}, o(1_R) = \infty$
+        \item $m \ge 2 \Rightarrow 1_R \in R : \text{additive group}, o(1_R) = m$
+      \end{itemize}
+    \end{thm} 
+
+    \begin{lemText}
+      $R$ : integral domain, $m$ : characteristic of $R$ $\Rightarrow$ $m = 0$ or $m$ : prime number
+    \end{lemText}
+
     \end{frame}
 
     \subsection{\sscount 商の体}
