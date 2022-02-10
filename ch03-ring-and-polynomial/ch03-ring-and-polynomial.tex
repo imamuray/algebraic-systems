@@ -622,7 +622,7 @@
 
       \begin{exmText}
         $R$ : 環 \\
-        $\forall J$ : $R$のイデアル, $f\colon R \to R/J$ $\Rightarrow$ $\Ker f = J$
+        $\forall J$ : $R$のイデアル, $f\colon R \to R/J$ : hom. $\Rightarrow$ $\Ker f = J$
       \end{exmText}
       
     \end{frame}
@@ -635,7 +635,7 @@
 
       \begin{thmText}[環の準同型定理]
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.}, \Ker f = J \Rightarrow g\colon R/J \to f(R) : \text{iso.} \; (R/J \cong f(R))$ 
+        $f\colon R \to R' : \text{hom.}, \Ker f = J \Rightarrow R/J \cong f(R)$ 
       \end{thmText}
 
       \begin{thmText}
@@ -643,7 +643,8 @@
         \begin{itemize}
           \item $M$ : left ideal of $R$, $M'$ : left ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
           \item $M$ : right ideal of $R$, $M'$ : right ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
-          \item $M$ : ideal of $R$ $\Leftrightarrow$ $M'$ : ideal of $R$, $R/M \cong R'/M'$
+          \item $M$ : ideal of $R$ $\Leftrightarrow$ $M'$ : ideal of $R'$
+          \item $M$ : ideal of $R$, $M'$ : ideal of $R'$ $\Rightarrow$ $R/M \cong R'/M'$
         \end{itemize}       
       \end{thmText}
       
@@ -653,8 +654,8 @@
 
       \begin{defn}
         $R$ : ring, \; $J_L, J_R$ : left (right) ideal of $R$, \; $J_L, J_R \neq R$ \\
-        $\forall J : \text{left ideal of $R$} \Rightarrow J = R \; \text{or} \; J_L$ $\defarrow$ $J_L$ : $R$の\alert{極大左イデアル(maximal left ideal)}
-        $\forall J : \text{right ideal of $R$} \Rightarrow J = R \; \text{or} \; J_R$ $\defarrow$ $J_R$ : $R$の\alert{極大右イデアル(maximal right ideal)}
+        $\forall J : \text{left (right) ideal of $R$}, \; J_L(J_R) \subset J \Rightarrow J = R \; \text{or} \; J_L(J_R)$ \\
+        $\defarrow$ $J_L(J_R)$ : $R$の\alert{極大左(右)イデアル(maximal left (right) ideal)}
       \end{defn}
 
       \begin{defn}
