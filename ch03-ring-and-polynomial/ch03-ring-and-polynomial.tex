@@ -28,6 +28,13 @@
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\lideal}{\trianglelefteq_l}
+\newcommand{\rideal}{\trianglelefteq_r}
+\newcommand{\ideal}{\trianglelefteq}
+\renewcommand{\hom}{\text{hom.}} % 準同型: homomorphism
+\newcommand{\mon}{\text{mon.}} % 単射準同型: monomorphism
+\newcommand{\epi}{\text{epi.}} % 全射準同型: epimorphism
+\newcommand{\iso}{\text{iso.}} % 同型: isomorphism
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -141,8 +148,8 @@
         \underline{Rem.} $\forall x \in S, 0(x) = 0_R$
 
         \begin{defn}
-          $\forall A$ : 加法群, $f\colon A \to A$ : hom. : \alert{自己準同型写像, 自己準同型}(endomorphism) \\
-          $\End(A) \coloneqq \{f \mid f\colon A \to A : \text{hom.}\}$
+          $\forall A$ : 加法群, $f\colon A \to A : \hom$ : \alert{自己準同型写像, 自己準同型}(endomorphism) \\
+          $\End(A) \coloneqq \{f \mid f\colon A \to A : \hom \}$
         \end{defn}
 
         \begin{exmText}
@@ -342,17 +349,17 @@
           \item $\forall a, b \in J \Rightarrow a + b \in J$
           \item $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
         \end{enumerate}
-        $\defarrow$ $J$ : $R$の\alert{左イデアル}
+        $\defarrow$ $J \lideal R$, $J$ : $R$の\alert{左イデアル}
       \end{defn}
 
       \begin{thm}
         $R$ : 環, $J \subset R, J \neq \emptyset$ \\
-        $J$ : $R$の左イデアル $\Leftrightarrow$ $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
+        $J \lideal R$ $\Leftrightarrow$ $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
       \end{thm}
 
       \begin{defn}
         $R$ : 環 \\
-        $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ar \in J$ $\defarrow$ $J$ : $R$の\alert{右イデアル}
+        $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ar \in J$ $\defarrow$ $J \rideal R$, $J$ : $R$の\alert{右イデアル}
       \end{defn}
 
     \end{frame}
@@ -360,18 +367,18 @@
     \begin{frame}
 
       \begin{defn}
-        $J$ : $R$の左イデアルかつ右イデアル $\defarrow$ $J$ : $R$の\alert{イデアル}または\alert{両側イデアル}
+        $J \lideal R, J \rideal R$ $\defarrow$ $J \ideal R$, $J$ : $R$の\alert{イデアル}または\alert{両側イデアル}
       \end{defn}
       \underline{Rem.} $R$が可換なら, 左イデアル, 右イデアル, 両側イデアルは一致する
  
       \begin{exmText}
         \hypertarget{exmText3-1}{}
         $R = \{f \mid f\colon [0,1] \to [0,1] : \text{実数値連続関数}\}$ \\
-        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c$ : $R$のイデアル
+        $c \in [0,1], J_c = \{f \in R \mid f(c) = 0\}$ $\Rightarrow$ $J_c \ideal R$
       \end{exmText}
 
       \begin{exmText}
-        $n \in \mathbb{Z}, n \ge 0$ $\Rightarrow$ $n\mathbb{Z}$ : 環$\mathbb{Z}$のイデアル
+        $n \in \mathbb{Z}, n \ge 0$ $\Rightarrow$ $n\mathbb{Z} \ideal \mathbb{Z}$
       \end{exmText}
 
     \end{frame}
@@ -381,8 +388,8 @@
       \begin{exmText}
         $R$ : 環
         \begin{itemize}
-          \item $a \in R, J_a = \{xa \mid x \in R\} \Rightarrow J_a : \text{左イデアル}$
-          \item $a_1, \cdots, a_n \in R, J = \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots x_n \in R\} \Rightarrow J : \text{左イデアル}$
+          \item $a \in R, J_a = \{xa \mid x \in R\} \Rightarrow J_a \lideal R$
+          \item $a_1, \cdots, a_n \in R, J = \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots x_n \in R\} \Rightarrow J \lideal R$
         \end{itemize}
       \end{exmText}
 
@@ -396,7 +403,7 @@
       \end{defn}
 
       \begin{thm}
-        $\forall J : \text{$R$の左イデアル}, a_1, \cdots, a_n \in J \Rightarrow (a_1, \cdots, a_n) \subset J$
+        $\forall J \lideal R, a_1, \cdots, a_n \in J \Rightarrow (a_1, \cdots, a_n) \subset J$
       \end{thm}
 
     \end{frame}
@@ -408,17 +415,17 @@
         \begin{itemize}
           \item $1 \in R \Rightarrow (1) = R$
           \item $0 \in R \Rightarrow (0) = \{0\}$
-          \item $R, (0)$ : $R$の両側イデアル
+          \item $R \ideal R, (0) \ideal R$
         \end{itemize}
       \end{thm}
 
       \begin{defn}
-        $J$ : $R$のイデアル, $J = \{0\}$ $\defarrow$ $0 \coloneqq J$ : \alert{零イデアル}
+        $J \ideal R, J = \{0\}$ $\defarrow$ $0 \coloneqq J$ : \alert{零イデアル}
       \end{defn}
 
       \begin{thmText}
         $R$ : 環, $R \neq \emptyset$ \\
-        $R$ : 斜体 $\Leftrightarrow$ $\forall J$ : $R$の左イデアル $\Rightarrow$ $J = R \; \text{or} \; 0$
+        $R$ : 斜体 $\Leftrightarrow$ $\forall J \lideal R \Rightarrow J = R \; \text{or} \; 0$
       \end{thmText}
       \underline{Rem.} 右イデアルも同様に成り立つが, 両側イデアルの場合 $\Leftarrow$ は必ずしも成り立たない.
 
@@ -427,12 +434,12 @@
     \begin{frame}
 
       \begin{lemText}
-        $R$ : 環, $J$ : $R$のイデアル \\
+        $R$ : 環, $J \ideal R$ \\
         $\forall a, a', b, b' \in R, a \equiv a' \pmod{J}, b \equiv b' \pmod{J} \Rightarrow ab \equiv a'b' \pmod{J}$
       \end{lemText}
 
       \begin{thmText}
-        $R$ : 環, $J$ : $R$のイデアル, $R/J \ni \bar{a} \coloneqq a + J$ \\
+        $R$ : 環, $J \ideal R$, $R/J \ni \bar{a} \coloneqq a + J$ \\
         $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : 環
       \end{thmText}
 
@@ -457,8 +464,8 @@
       本節では特に有理数環$\mathbb{Z}$について考える.
       
       \begin{thm}
-        $n \ge 0, (n) \coloneqq n\mathbb{Z}$ : $\mathbb{Z}$のイデアル ($\because$ \textsection 3 Exm. 2) \\
-        $\forall J$ : $\mathbb{Z}$のイデアル $\Leftrightarrow$ $\exists n \in \mathbb{Z} \st n \ge 0, J = (n)$
+        $n \ge 0, (n) \coloneqq n\mathbb{Z}, (n) \ideal \mathbb{Z}$ ($\because$ \textsection 3 Exm. 2) \\
+        $\forall J \ideal \mathbb{Z} \Leftrightarrow \exists n \in \mathbb{Z} \st n \ge 0, J = (n)$
       \end{thm}
 
       \begin{defn}
@@ -545,13 +552,13 @@
 
       \begin{thm}
         $R, R', R''$ : 環 \\
-        $f\colon R \to R' : \text{hom.}, g\colon R' \to R'' : \text{hom.} \Rightarrow g \circ f \colon R \to R'' : \text{hom.}$
+        $f\colon R \to R' : \hom, g\colon R' \to R'' : \hom \Rightarrow g \circ f \colon R \to R'' : \hom$
       \end{thm}
       \underline{Rem.} \alert{単射準同型}, \alert{全射準同型}, \alert{同型}, \alert{自己同型}などの語の用法は群の場合と同様
 
       \begin{defn}
         $R, R'$ : 環 \\
-        $\exists f\colon R \to R' : \text{iso.}$ $\defarrow$ $R \cong R'$ : $R$と$R'$は\alert{同型}
+        $\exists f\colon R \to R' : \iso$ $\defarrow$ $R \cong R'$ : $R$と$R'$は\alert{同型}
       \end{defn}
       
     \end{frame}
@@ -560,7 +567,7 @@
 
       \begin{exmText}
         $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
-        $c \in [0, 1], F\colon R \to \mathbb{R}, f \mapsto f(c) \Rightarrow F : \text{hom.}$
+        $c \in [0, 1], F\colon R \to \mathbb{R}, f \mapsto f(c) \Rightarrow F : \hom$
       \end{exmText}
 
       \begin{exmText}
@@ -577,18 +584,22 @@
     \begin{frame}
 
       \begin{exmText}
-        $R$ : 環, $J$ : $R$のイデアル \\
-        $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \text{hom.}$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
+        $R$ : 環, $J \ideal R$ \\
+        $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \hom$
       \end{exmText}
+
+      \begin{defn}
+        $\varphi \colon R \to R/J, a \mapsto \bar{a} : \hom$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
+      \end{defn}
 
       \begin{thm}
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.} \Rightarrow f(0_R) = 0_{R'}, f(-x) = -f(x)$
+        $f\colon R \to R' : \hom \Rightarrow f(0_R) = 0_{R'}, f(-x) = -f(x)$
       \end{thm}
 
       \begin{thm}
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.} \Rightarrow R' \supset f(R) : \text{環}$
+        $f\colon R \to R' : \hom \Rightarrow R' \supset f(R) : \text{環}$
       \end{thm}
       
     \end{frame}
@@ -596,18 +607,18 @@
     \begin{frame}
       
       \begin{defn}
-        $R, R'$ : 環, $f\colon R \to R'$ : hom. \\
+        $R, R'$ : 環, $f\colon R \to R' : \hom$ \\
         $\Ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
       \end{defn}
       \underline{Rem.} $\Ker f$は加法群の準同型としての$f$の核にほかならない
 
       \begin{thm}
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.} \Rightarrow \Ker f : \text{$R$の両側イデアル}$
+        $f\colon R \to R' : \hom \Rightarrow \Ker f \ideal R$
       \end{thm}
 
       \begin{thm}
-        $R, R'$ : 環, $f\colon R \to R' : \text{hom.}$ \\
+        $R, R'$ : 環, $f\colon R \to R' : \hom$ \\
         $\Ker f \neq R \Rightarrow R'\neq \{0\} $
       \end{thm}
 
@@ -617,12 +628,12 @@
 
       \begin{exmText}
         $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
-        $F\colon f \mapsto f(c)$ : hom. (Exm. 1), $J_c = \{f \in R \mid f(c) = 0\}$ (\hyperlink{exmText3-1}{\textsection 3 Exm. 1}) $\Rightarrow$ $\Ker F = J_c$
+        $F\colon f \mapsto f(c) : \hom$(Exm. 1), $J_c = \{f \in R \mid f(c) = 0\}$ (\hyperlink{exmText3-1}{\textsection 3 Exm. 1}) $\Rightarrow$ $\Ker F = J_c$
       \end{exmText}
 
       \begin{exmText}
         $R$ : 環 \\
-        $\forall J$ : $R$のイデアル, $f\colon R \to R/J$ : hom. $\Rightarrow$ $\Ker f = J$
+        $\forall J \ideal R, f\colon R \to R/J : \hom \Rightarrow \Ker f = J$
       \end{exmText}
       
     \end{frame}
@@ -630,21 +641,21 @@
     \begin{frame}
 
       \begin{thm}
-        $R$ : 斜体, $R' \neq \emptyset$ : 環, $f\colon R \to R'$ : hom. $\Rightarrow$ $f$ : injective hom.
+        $R$ : 斜体, $R' \neq \emptyset$ : 環, $f\colon R \to R' : \hom \Rightarrow f : \mon$
       \end{thm}
 
       \begin{thmText}[環の準同型定理]
         $R, R'$ : 環 \\
-        $f\colon R \to R' : \text{hom.}, \Ker f = J \Rightarrow R/J \cong f(R)$ 
+        $f\colon R \to R' : \hom, \Ker f = J \Rightarrow R/J \cong f(R)$ 
       \end{thmText}
 
       \begin{thmText}
-         $R, R'$ : 環, $f\colon R \to R'$ : surjective hom., $\Ker f = J$
+         $R, R'$ : 環, $f\colon R \to R' : \epi, \Ker f = J$
         \begin{itemize}
-          \item $M$ : left ideal of $R$, $M'$ : left ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
-          \item $M$ : right ideal of $R$, $M'$ : right ideal of $R'$, $J \subset M$ $\Rightarrow$ $f(M) = M', \inverse{f}(M') = M$
-          \item $M$ : ideal of $R$ $\Leftrightarrow$ $M'$ : ideal of $R'$
-          \item $M$ : ideal of $R$, $M'$ : ideal of $R'$ $\Rightarrow$ $R/M \cong R'/M'$
+          \item $M \lideal R, M' \lideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
+          \item $M \rideal R, M' \rideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
+          \item $M \ideal R \Leftrightarrow M' \ideal R'$
+          \item $M \ideal R, M' \ideal R' \Rightarrow R/M \cong R'/M'$
         \end{itemize}       
       \end{thmText}
       
@@ -653,24 +664,24 @@
     \begin{frame}
 
       \begin{defn}
-        $R$ : ring, \; $J_L, J_R$ : left (right) ideal of $R$, \; $J_L, J_R \neq R$ \\
-        $\forall J : \text{left (right) ideal of $R$}, \; J_L(J_R) \subset J \Rightarrow J = R \; \text{or} \; J_L(J_R)$ \\
+        $R : \text{ring}, \; J_L \lideal R, J_R \rideal R, \; J_L, J_R \neq R$ \\
+        $\forall J \lideal (\rideal) R, \; J_L(J_R) \subset J \Rightarrow J = R \; \text{or} \; J_L(J_R)$ \\
         $\defarrow$ $J_L(J_R)$ : $R$の\alert{極大左(右)イデアル(maximal left (right) ideal)}
       \end{defn}
 
       \begin{defn}
-        $R$ : ring, \; $J_L, J_R$ : maximal left (right) ideal of $R$, \; $J_L, J_R \neq R$ \\
+        $R : \text{ring}, \; J_L \lideal R : \text{maximal}, J_R \rideal R : \text{maximal}, \; J_L, J_R \neq R$ \\
         $R : \text{commutative} \Rightarrow J_L = J_R$ : \alert{極大イデアル(maximal ideal)}
       \end{defn}
 
       \begin{thmText}
-        $R$ : ring, \; $J$ : tow-sided ideal of $R$, \; $J \neq R$ \\
-        $R/J$ : skew field $\Leftrightarrow$ $J$ : maximal left ideal of $R$ $\Leftrightarrow$ $J$ : maximal right ideal of $R$
+        $R : \text{ring}, \; J \ideal R, \; J \neq R$ \\
+        $R/J : \text{skew field} \Leftrightarrow J \lideal R : \text{maximal} \Leftrightarrow J \rideal R : \text{maximal}$
       \end{thmText}
 
       \begin{corText}
-        $R$ : commutative ring, \; $J$ : ideal of $R$, \; $J \neq R$ \\
-        $R/J$ field $\Leftrightarrow$ $J$ : maximal ideal of $R$
+        $R : \text{commutative ring}, \; J \ideal R, \; J \neq R$ \\
+        $R/J : \text{field} \Leftrightarrow J \ideal R : \text{maximal}$
       \end{corText}
       
     \end{frame}
@@ -678,7 +689,7 @@
     \begin{frame}
 
       \begin{lemText}
-        $\forall R : \text{ring} \Rightarrow \exists! \mu\colon \mathbb{Z} \to R : \text{hom.} \st \mu(n) = n1_R$ 
+        $\forall R : \text{ring} \Rightarrow \exists! \mu\colon \mathbb{Z} \to R : \hom \st \mu(n) = n1_R$ 
       \end{lemText}
 
       \begin{thm}
