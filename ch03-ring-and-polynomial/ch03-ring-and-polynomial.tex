@@ -35,6 +35,10 @@
 \newcommand{\mon}{\text{mon.}} % 単射準同型: monomorphism
 \newcommand{\epi}{\text{epi.}} % 全射準同型: epimorphism
 \newcommand{\iso}{\text{iso.}} % 同型: isomorphism
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -86,7 +90,7 @@
       \begin{frame}
 
         \begin{defn}
-          $R$ : 集合, $R \ne \emptyset$, \\
+          $R$ : set, $R \ne \emptyset$, \\
           $R \times R \to R, (a, b) \mapsto a + b, (a, b) \mapsto ab$
           \begin{enumerate}
             \item $R$ : 加法について可換群
@@ -94,19 +98,19 @@
             \item $\forall a, b, c \in R \Rightarrow a(b + c) = ab + ac, (b + c)a = ba + ca$
             \item $\exists e \in R \st \forall a \in R, ea = ae = a$
           \end{enumerate}
-          $\defarrow$ $R$ : \alert{環}(ring)
+          $\defarrow$ $R$ : \alert{環(ring)}
         \end{defn}
 
         \begin{defn}
-          $R$: 環 \\
+          $R$: ring \\
           \begin{itemize}
-            \item $\exists! e_+ \in R \st \forall a \in R, e_+ + a = a \defarrow 0 \coloneqq e_+$ : $R$の\alert{零元}
+            \item $\exists! e_+ \in R \st \forall a \in R, e_+ + a = a \defarrow 0 \coloneqq e_+$ : $R$の\alert{零元(additive identity)}
             \item $\forall a \in R, \exists! a' \in R \st a + a' = 0 \defarrow -a \coloneqq a'$
           \end{itemize}
         \end{defn}
 
         \begin{defn}
-          $R$ : 環, $\forall a, b \in R \Rightarrow ab = ba$ $\defarrow$ $R$ : \alert{可換環}
+          $R$ : ring, $\forall a, b \in R \Rightarrow ab = ba$ $\defarrow$ $R$ : \alert{可換環(commutative ring)}
         \end{defn}
 
       \end{frame}
@@ -114,20 +118,24 @@
       \begin{frame}
         
         \begin{thm}
-          $R$ : 環, $\exists! e \in R \st \forall a \in R, ea = ae = e$ $\defarrow$ $1 \coloneqq e$ : $R$の\alert{単位元}
+          $R : \text{ring} \Rightarrow \exists! e \in R \st \forall a \in R, ea = ae = e$
         \end{thm}
 
+        \begin{defn}
+          $1 \coloneqq e$ : $R$の\alert{単位元(multiplcative identity)}         
+        \end{defn}
+
         \begin{exmText}
-          $\mathbb{Z}$ : 可換環 : \alert{有理整数環}
+          $\Z$ : commutative ring : \alert{有理整数環(ring of rational integers)}
         \end{exmText}
 
         \begin{exmText}
-          $\mathbb{Q}, \mathbb{R}, \mathbb{C}$ : 可換環
+          $\Q, \R, \C$ : commutative ring
         \end{exmText}
 
         \begin{exmText}
-          $[0, 1] \subset \mathbb{R}, R = \{f \mid f\colon [0, 1] \to [0, 1]\},$ \\
-          $f, g \in R, \forall t \in [0, 1], (f + g)(t) = f(t) + g(t), (fg)(t) = f(t)g(t)$ $\Rightarrow$ $R$ : 可換環
+          $[0, 1] \subset \R, R = \{f \mid f\colon [0, 1] \to [0, 1]\},$ \\
+          $f, g \in R, \forall t \in [0, 1], (f + g)(t) = f(t) + g(t), (fg)(t) = f(t)g(t)$ $\Rightarrow$ $R$ : commutative ring
         \end{exmText}
 
       \end{frame}
@@ -135,35 +143,35 @@
       \begin{frame}
 
         \begin{exmText}
-          $\forall R : \text{環}, \forall S : \text{集合}, S \ne \emptyset, M(S, R) = \{f \mid f\colon S \to R\},$ \\
-          $f, g \in M(S, R), \forall x \in S, (f + g)(x) = f(x) + g(x), (fg)(x) = f(x)g(x) \Rightarrow M(S, R) : \text{環}$
+          $\forall R : \text{ring}, \forall S : \text{set}, S \ne \emptyset, M(S, R) = \{f \mid f\colon S \to R\},$ \\
+          $f, g \in M(S, R), \forall x \in S, (f + g)(x) = f(x) + g(x), (fg)(x) = f(x)g(x) \Rightarrow M(S, R) : \text{ring}$
         \end{exmText}
 
         \begin{defn}
           \begin{itemize}
-            \item $0 \in M(S, R)$ : $S$から$R$の\alert{零写像}
+            \item $0 \in M(S, R)$ : $S$から$R$の\alert{零写像(zero mapping)}
             \item $-f \in R, \forall x \in S, (-f)(x) = -f(x)$
           \end{itemize}
         \end{defn}
         \underline{Rem.} $\forall x \in S, 0(x) = 0_R$
 
         \begin{defn}
-          $\forall A$ : 加法群, $f\colon A \to A : \hom$ : \alert{自己準同型写像, 自己準同型}(endomorphism) \\
+          $\forall A$ : additive group, $f\colon A \to A : \hom$ : \alert{自己準同型(endomorphism)} \\
           $\End(A) \coloneqq \{f \mid f\colon A \to A : \hom \}$
         \end{defn}
 
         \begin{exmText}
-          $\forall A$ : 加法群, \\
-          $f, g \in \End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(g(x)) \Rightarrow \End(A) : \text{環}$
+          $\forall A$ : additive group, \\
+          $f, g \in \End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(g(x)) \Rightarrow \End(A) : \text{ring}$
         \end{exmText}
-        \underline{Rem.} $\End(A)$ : \alert{自己準同型環}
+        \underline{Rem.} $\End(A)$ : \alert{自己準同型環(endomorphism ring)}
         
       \end{frame}
 
       \begin{frame}
 
         \begin{thm}
-          $R$ : 環
+          $R$ : ring
           \begin{enumerate}
             \item $0 \in R, \forall a \in R \Rightarrow a0 = 0a = 0$ 
             \item $\forall a, b \in R \Rightarrow a(-b) = (-a)b = -ab$
@@ -181,21 +189,22 @@
     \begin{frame}
 
       \begin{thm}
-        $R$ : 環, $0, 1 \in R$ \\
+        $R$ : ring, $0, 1 \in R$ \\
         $1 = 0 \Rightarrow R = \{0\} \; (\because \forall a \in R, a = 1a = 0a = 0)$
       \end{thm}
 
       \begin{defn}
-        $R$ : 環, $0, 1 \in R, 1 = 0$ $\defarrow$ $R$ : \alert{零環}
+        $R$ : ring, $0, 1 \in R, 1 = 0$ $\defarrow$ $R$ : \alert{零環(zero ring)}
       \end{defn}
       \underline{Rem.} 今後, $R$は零環ではないとする.
 
       \begin{defn}
-        $\exists a, b \in R \st a \ne 0, b \ne 0, ab = 0 \defarrow a, b : \text{$R$の\alert{零因子}}$ ($a$ : 左零因子, $b$ : 右零因子)
+        $R : \text{ring}, \exists a, b \in R \st a \ne 0, b \ne 0, ab = 0 \defarrow a, b : \text{$R$の\alert{零因子(zero divisor)}}$ \\
+        $a$ : 左零因子(left zero divisor), $b$ : 右零因子(right zero divisor)
       \end{defn}
 
       \begin{defn}
-        $\forall a, b \in R, a \ne 0, b \ne 0 \Rightarrow ab \ne 0, R : \text{可換}$ $\defarrow$ $R$ : \alert{整域}
+        $R : \text{commutative ring}, \forall a, b \in R, a \ne 0, b \ne 0 \Rightarrow ab \ne 0$ $\defarrow$ $R$ : \alert{整域(integral domain)}
       \end{defn}
 
     \end{frame}
@@ -203,7 +212,7 @@
     \begin{frame}
 
       \begin{exmText}
-        $\mathbb{Z}$ : 整域
+        $\Z$ : integral domain
       \end{exmText}
 
       \begin{exmText}
@@ -211,13 +220,14 @@
       \end{exmText}
 
       \begin{defn}
-        $a \in R, \exists b \in R \st ba = ab = 1$ $\defarrow$ $a$ : $R$の\alert{可逆元}または\alert{単元}, $\inverse{a} \coloneqq b$ : $a$の\alert{逆元}
+        $R : \text{ring}, a \in R, \exists b \in R \st ba = ab = 1$ \\
+        $\defarrow$ $a$ : $R$の\alert{可逆元}または\alert{単元(unit)}, $\inverse{a} \coloneqq b$ : $a$の\alert{逆元(inverse)}
       \end{defn}
 
       \begin{thm}
         \begin{itemize}
-          \item $a \in R : \text{単元} \Rightarrow a \ne 0$
-          \item $a \in R : \text{単元} \Rightarrow \exists! \inverse{a} \in R \st \inverse{a}a = a\inverse{a} = 1$
+          \item $a \in R : \text{unit} \Rightarrow a \ne 0$
+          \item $a \in R : \text{unit} \Rightarrow \exists! \inverse{a} \in R \st \inverse{a}a = a\inverse{a} = 1$
         \end{itemize}
       \end{thm}
       
@@ -226,22 +236,22 @@
     \begin{frame}
 
       \begin{lemText}
-        $R: \text{環}, G = \{a \in R \mid a: \text{$R$の単元}\} \Rightarrow G: \text{乗法に関して群}$
+        $R: \text{ring}, G = \{a \in R \mid a: \text{unit}\} \Rightarrow G: \text{乗法に関して群}$
       \end{lemText}
 
       \begin{exmText}
-        $A$ : 加法群, $A \ne \{0\}$
+        $A$ : additive group, $A \ne \{0\}$
         \begin{itemize}
-          \item $f \in \End(A), f: \text{単元} \Rightarrow f: \text{iso.}$
-          \item $G = \{f \in \End(A) \mid f: \text{単元}\} \Rightarrow G = \Aut(A)$
+          \item $f \in \End(A), f: \text{unit} \Rightarrow f: \text{iso.}$
+          \item $G = \{f \in \End(A) \mid f: \text{unit}\} \Rightarrow G = \Aut(A)$
         \end{itemize}
       \end{exmText}
 
       \begin{defn}
-        $R$ : 環
+        $R$ : ring
         \begin{itemize}
-          \item $\forall a \in R, a \ne 0 \Rightarrow a: \text{単元} \defarrow R: \text{\alert{斜体}}$
-          \item $R: \text{斜体}, \forall a, b \in R, ab = ba \defarrow R: \text{\alert{体}}$
+          \item $\forall a \in R, a \ne 0 \Rightarrow a: \text{unit}$ $\defarrow$ $R$ : \alert{斜体(skew field)}
+          \item $R: \text{skew field}, R : \text{commutative}$ $\defarrow$ $R$ : \alert{体(field)}
         \end{itemize}
       \end{defn}
 
@@ -250,41 +260,46 @@
     \begin{frame}
 
       \begin{thm}
-        $R$: 環
+        $R$: ring
         \begin{itemize}
-          \item $R: \text{斜体} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して群}$
-          \item $R: \text{体} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して可換群}$
+          \item $R: \text{skew field} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して群}$
+          \item $R: \text{field} \Leftrightarrow G = \{a \in R \mid a \ne 0\} : \text{乗法に関して可換群}$
         \end{itemize}
       \end{thm}
  
       \begin{exmText}
         \begin{itemize}
-          \item $\mathbb{Z} : \text{環} \nRightarrow \mathbb{Z} : \text{体}$
-          \item $\mathbb{Q, R, C} : \text{環} \Rightarrow \mathbb{Q, R, C} : \text{体}$
+          \item $\Z : \text{ring} \nRightarrow \Z : \text{field}$
+          \item $\Q, \R, \C : \text{ring} \Rightarrow \Q, \R, \C : \text{field}$
+          \begin{itemize}
+            \item $\Q$ : \alert{有理数体(the field of rational numbers)}
+            \item $\R$ : \alert{実数体(the field of real numbers)}
+            \item $\C$ : \alert{複素数体(the field of complex numbers)}
+          \end{itemize}
         \end{itemize}
       \end{exmText}
-      \underline{Rem.} $\mathbb{Q}$ : \alert{有理数体}, $\mathbb{R}$ : \alert{実数体}, $\mathbb{C}$ : \alert{複素数体}
 
     \end{frame}
 
     \begin{frame}
 
       \begin{thm}
-        $\forall R : \text{体} \Rightarrow R : \text{整域}$
+        $\forall R : \text{field} \Rightarrow R : \text{integral domain}$
       \end{thm}
 
       \begin{lemText}
-        $R : \text{整域}, |R| \lt \infty \Rightarrow R : \text{体}$
+        $R : \text{integral domain}, |R| \lt \infty \Rightarrow R : \text{field}$
       \end{lemText}
 
       \begin{defn}
-        $R$ : 環, $R' \subset R, R' \neq \emptyset$ \\
-        $R'$ : $R$で定義されている加法, 乗法に関して環, $1_R \in R'$ $\defarrow$ $R'$ : $R$の\alert{部分環}
+        $R$ : ring, $R' \subset R, R' \neq \emptyset$ \\
+        $R'$ : $R$で定義されている加法, 乗法に関して環, $1_R \in R'$ \\
+        $\defarrow$ $R'$ : $R$の\alert{部分環(subring)}
       \end{defn}
 
       \begin{thm}
-        $R$ : 環, $R' \subset R$ \\
-        $R'$ : $R$の部分環 $\Leftrightarrow$ $1_R \in R', \forall a, b \in R' \Rightarrow -a, a+b, ab \in R'$
+        $R$ : ring, $R' \subset R$ \\
+        $R'$ : subring of $R$ $\Leftrightarrow$ $1_R \in R', \forall a, b \in R' \Rightarrow -a, a+b, ab \in R'$
       \end{thm}
 
     \end{frame}
@@ -292,25 +307,25 @@
     \begin{frame}
 
       \begin{defn}
-        $R'$ : $R$の部分環 \\
+        $R'$ : subring of $R$ \\
         \begin{itemize}
-          \item $R'$ : 斜体 $\defarrow$ $R$の\alert{部分斜体}
-          \item $R'$ : 体 $\defarrow$ $R$の\alert{部分体}
+          \item $R'$ : skew field $\defarrow$ $R$の\alert{部分斜体}
+          \item $R'$ : field $\defarrow$ $R$の\alert{部分体(subfield)}
         \end{itemize}
       \end{defn}
 
       \begin{exmText}
         \begin{itemize}
-          \item 環$\mathbb{Z}$ : 体$\mathbb{Q}$の部分環
-          \item 体$\mathbb{Q}$ : 体$\mathbb{R}$の部分体
+          \item 環$\Z$ : 体$\Q$の部分環
+          \item 体$\Q$ : 体$\R$の部分体
         \end{itemize}
       \end{exmText}
  
       \begin{exmText}
         $R = \{f \mid f\colon [0,1] \to [0,1]\}$ (\textsection 1 Exm. 3 の環)
         \begin{itemize}
-          \item $R' = \{f \mid f\colon [0,1] \to [0,1] : \text{連続関数}\}$ $\Rightarrow$ $R'$ : $R$の部分環
-          \item $R'' = \{f \mid f\colon [0,1] \to [0,1] : \text{微分可能関数}\}$ $\Rightarrow$ $R''$ : $R'$の部分環
+          \item $R' = \{f \mid f\colon [0,1] \to [0,1] : \text{連続関数}\}$ $\Rightarrow$ $R'$ : subring of $R$
+          \item $R'' = \{f \mid f\colon [0,1] \to [0,1] : \text{微分可能関数}\}$ $\Rightarrow$ $R''$ : subring of $R'$
         \end{itemize}
       \end{exmText}
 
@@ -319,21 +334,21 @@
     \begin{frame}
 
       \begin{defn}
-        $R$ : 斜体, $\forall a,b \in R \Rightarrow ab \neq ba$ $\defarrow$ $R$ : \alert{非可換体}
+        $R$ : skew field, $\forall a,b \in R \Rightarrow ab \neq ba$ $\defarrow$ $R$ : \alert{非可換体(noncommutative field)}
       \end{defn}
 
       \begin{exmText}
-        $\mathbb{C}$ : 複素数の加法群, $A = \mathbb{C} \times \mathbb{C}$
+        $\C$ : 複素数の加法群, $A = \C \times \C$
         \begin{enumerate}
-          \item $\alpha, \beta \in \mathbb{C}, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End(A)$
-          \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : $\End(A)$の部分環
-          \item $Q$ : 非可換体
+          \item $\alpha, \beta \in \C, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End(A)$
+          \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : subring of $\End(A)$
+          \item $Q$ : noncommutative ring
         \end{enumerate}
       \end{exmText}
-      \underline{Rem.} $Q$ : $\mathbb{R}$上の\alert{四元数環}
+      \underline{Rem.} $Q$ : $\R$上の\alert{四元数環(quaternion ring)}
 
       \begin{thm}
-        $R$ : 整域または斜体 $\Rightarrow$ $\exists 0, 1 \in R \st 0 \neq 1$
+        $R$ : integral domain or field $\Rightarrow$ $\exists 0, 1 \in R \st 0 \neq 1$
       \end{thm}
       
     \end{frame}
@@ -344,22 +359,22 @@
     \begin{frame}
 
       \begin{defn}
-        $R$ : 環, $J \subset R, J \neq \emptyset$
+        $R$ : ring, $J \subset R, J \neq \emptyset$
         \begin{enumerate}
           \item $\forall a, b \in J \Rightarrow a + b \in J$
           \item $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
         \end{enumerate}
-        $\defarrow$ $J \lideal R$, $J$ : $R$の\alert{左イデアル}
+        $\defarrow$ $J \lideal R$, $J$ : $R$の\alert{左イデアル(left ideal)}
       \end{defn}
 
       \begin{thm}
-        $R$ : 環, $J \subset R, J \neq \emptyset$ \\
-        $J \lideal R$ $\Leftrightarrow$ $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
+        $R$ : ring, $J \subset R, J \neq \emptyset$ \\
+        $J \lideal R$ $\Leftrightarrow$ $J \le R$ : additive subgroup, $\forall r \in R, \forall a \in J \Rightarrow ra \in J$
       \end{thm}
 
       \begin{defn}
-        $R$ : 環 \\
-        $J \le R$ : 加法部分群, $\forall r \in R, \forall a \in J \Rightarrow ar \in J$ $\defarrow$ $J \rideal R$, $J$ : $R$の\alert{右イデアル}
+        $R$ : ring, $J \le R$ : additive subgroup, $\forall r \in R, \forall a \in J \Rightarrow ar \in J$ \\
+        $\defarrow$ $J \rideal R$, $J$ : $R$の\alert{右イデアル(right ideal)}
       \end{defn}
 
     \end{frame}
@@ -367,7 +382,8 @@
     \begin{frame}
 
       \begin{defn}
-        $J \lideal R, J \rideal R$ $\defarrow$ $J \ideal R$, $J$ : $R$の\alert{イデアル}または\alert{両側イデアル}
+        $J \lideal R, J \rideal R$ \\
+        $\defarrow$ $J \ideal R$, $J$ : $R$の\alert{イデアル(ideal)}または\alert{両側イデアル(tow-sided ideal)}
       \end{defn}
       \underline{Rem.} $R$が可換なら, 左イデアル, 右イデアル, 両側イデアルは一致する
  
@@ -378,7 +394,7 @@
       \end{exmText}
 
       \begin{exmText}
-        $n \in \mathbb{Z}, n \ge 0$ $\Rightarrow$ $n\mathbb{Z} \ideal \mathbb{Z}$
+        $n \in \Z, n \ge 0$ $\Rightarrow$ $n\Z \ideal \Z$
       \end{exmText}
 
     \end{frame}
@@ -386,7 +402,7 @@
     \begin{frame}
 
       \begin{exmText}
-        $R$ : 環
+        $R$ : ring
         \begin{itemize}
           \item $a \in R, J_a = \{xa \mid x \in R\} \Rightarrow J_a \lideal R$
           \item $a_1, \cdots, a_n \in R, J = \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots x_n \in R\} \Rightarrow J \lideal R$
@@ -394,9 +410,10 @@
       \end{exmText}
 
       \begin{defn}
-        $R$ : 環
+        $R$ : ring
         \begin{itemize}
-          \item $a \in R, Ra \text{(または$(a)$)} \coloneqq \{xa \mid x \in R\}$ : $a$によって\alert{生成}される\alert{単項左イデアル}
+          \item $a \in R, Ra \text{(または$(a)$)} \coloneqq \{xa \mid x \in R\}$ \\
+                : $a$によって\alert{生成}される\alert{単項左イデアル(left principal ideal)}
           \item $a_1, \cdots, a_n \in R, (a_1, \cdots, a_n) \coloneqq \{x_1a_1 + \cdots + x_na_n \mid x_1, \cdots, x_n \in R\}$ \\
                 : $a_1, \cdots, a_n$によって\alert{生成}される左イデアル
         \end{itemize}
@@ -411,7 +428,7 @@
     \begin{frame}
 
        \begin{thm}
-        $R$ : 環
+        $R$ : ring
         \begin{itemize}
           \item $1 \in R \Rightarrow (1) = R$
           \item $0 \in R \Rightarrow (0) = \{0\}$
@@ -420,12 +437,12 @@
       \end{thm}
 
       \begin{defn}
-        $J \ideal R, J = \{0\}$ $\defarrow$ $0 \coloneqq J$ : \alert{零イデアル}
+        $J \ideal R, J = \{0\}$ $\defarrow$ $0 \coloneqq J$ : \alert{零イデアル(zero ideal)}
       \end{defn}
 
       \begin{thmText}
-        $R$ : 環, $R \neq \emptyset$ \\
-        $R$ : 斜体 $\Leftrightarrow$ $\forall J \lideal R \Rightarrow J = R \; \text{or} \; 0$
+        $R$ : ring, $R \neq \emptyset$ \\
+        $R$ : skew field $\Leftrightarrow$ $\forall J \lideal R \Rightarrow J = R \; \text{or} \; 0$
       \end{thmText}
       \underline{Rem.} 右イデアルも同様に成り立つが, 両側イデアルの場合 $\Leftarrow$ は必ずしも成り立たない.
 
@@ -434,47 +451,47 @@
     \begin{frame}
 
       \begin{lemText}
-        $R$ : 環, $J \ideal R$ \\
+        $R$ : ring, $J \ideal R$ \\
         $\forall a, a', b, b' \in R, a \equiv a' \pmod{J}, b \equiv b' \pmod{J} \Rightarrow ab \equiv a'b' \pmod{J}$
       \end{lemText}
 
       \begin{thmText}
-        $R$ : 環, $J \ideal R$, $R/J \ni \bar{a} \coloneqq a + J$ \\
-        $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : 環
+        $R$ : ring, $J \ideal R$, $R/J \ni \bar{a} \coloneqq a + J$ \\
+        $\bar{a}, \bar{b} \in R/J, \bar{a} + \bar{b} = \overline{a + b}, \; \bar{a}\bar{b} = \overline{ab}$ $\Rightarrow$ $R/J$ : ring
       \end{thmText}
 
       \begin{defn}
-        $R/J$ : $R$の$J$による\alert{剰余環}または\alert{商環}
+        $R/J$ : $R$の$J$による\alert{剰余環(factor ring)}または\alert{商環(quotient ring)}
       \end{defn}
 
       \begin{thm}
         \begin{enumerate}
-          \item $R/J$ : 零環 $\Leftrightarrow$ $J = R$
+          \item $R/J$ : zero ring $\Leftrightarrow$ $J = R$
           \item $J = (0) \Rightarrow R/J \cong R$
-          \item $R$ : 可換環 $\Rightarrow$ $\forall R/J$ : 可換
+          \item $R$ : commutative ring $\Rightarrow$ $\forall R/J$ : commutative
         \end{enumerate}
       \end{thm}
 
     \end{frame}
 
-    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}$}{Z}の商環}
+    \subsection{\sscount \texorpdfstring{ $\Z$}{Z}の商環}
     \setcounter{textExmCount}{0}
 
     \begin{frame}
-      本節では特に有理数環$\mathbb{Z}$について考える.
+      本節では特に有理数環$\Z$について考える.
       
       \begin{thm}
-        $n \ge 0, (n) \coloneqq n\mathbb{Z}, (n) \ideal \mathbb{Z}$ ($\because$ \textsection 3 Exm. 2) \\
-        $\forall J \ideal \mathbb{Z} \Leftrightarrow \exists n \in \mathbb{Z} \st n \ge 0, J = (n)$
+        $n \ge 0, (n) \coloneqq n\Z, (n) \ideal \Z$ ($\because$ \textsection 3 Exm. 2) \\
+        $\forall J \ideal \Z \Leftrightarrow \exists n \in \Z \st n \ge 0, J = (n)$
       \end{thm}
 
       \begin{defn}
-        $n \ge 1, \mathbb{Z}_n \coloneqq \mathbb{Z} / (n)$ : 法$n$に関する$\mathbb{Z}$の商環
+        $n \ge 1, \Z_n \coloneqq \Z / (n)$ : 法$n$に関する$\Z$の商環
       \end{defn}
-      \underline{Rem.} $|\mathbb{Z}_n| = n, \mathbb{Z}_1 = \{0\}$
+      \underline{Rem.} $|\Z_n| = n, \Z_1 = \{0\}$
 
       \begin{defn}
-        $n \ge 2, \mathbb{Z}_n \ni \bar{a} \coloneqq a + (n)$
+        $n \ge 2, \Z_n \ni \bar{a} \coloneqq a + (n)$
       \end{defn}
 
     \end{frame}
@@ -482,45 +499,45 @@
     \begin{frame}
 
       \begin{thm}
-        $\bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}, (a, n) = 1, \forall a' \in a + (n) \Rightarrow (a', n) = 1$
+        $\bar{a} \in \Z_n, \bar{a} \neq \bar{0}, (a, n) = 1, \forall a' \in a + (n) \Rightarrow (a', n) = 1$
       \end{thm}
       \underline{Rem.} 上記$\bar{a}$ : 第1章 \textsection 8 の「法$n$に関する既約剰余類」のこと
 
       \begin{lemText}
-        $n \ge 2, \bar{a} \in \mathbb{Z}_n, \bar{a} \neq \bar{0}$
+        $n \ge 2, \bar{a} \in \Z_n, \bar{a} \neq \bar{0}$
         \begin{itemize}
           \item $(a, n) = 1 \Rightarrow \bar{a} : \text{unit}$
-          \item $(a, n) \neq 1 \Rightarrow \bar{a} : \text{零因子}$
+          \item $(a, n) \neq 1 \Rightarrow \bar{a} : \text{zero divisor}$
         \end{itemize}
       \end{lemText}
 
       \begin{thmText}
         $n \ge 2$
         \begin{itemize}
-          \item $n = p : \text{素数} \Rightarrow \mathbb{Z}_p : \text{体}$
-          \item $n : \text{素数でない} \Rightarrow \exists \bar{a} \in \mathbb{Z}_n \st \bar{a} : \text{零因子}$
+          \item $n = p : \text{prime} \Rightarrow \Z_p : \text{field}$
+          \item $n : \text{not prime} \Rightarrow \exists \bar{a} \in \Z_n \st \bar{a} : \text{zero divisor}$
         \end{itemize}
       \end{thmText}
-      \underline{Rem.} $\mathbb{Z}_2 = \{\bar{0}, \bar{1}\}$ : 体
+      \underline{Rem.} $\Z_2 = \{\bar{0}, \bar{1}\}$ : field
 
     \end{frame}
 
     \begin{frame}
  
       \begin{defn}
-        $(\mathbb{Z} / n\mathbb{Z})^\times \coloneqq \{\bar{a} \in \mathbb{Z}_n \mid (a, n) = 1\}$ : 法$n$に関する$\mathbb{Z}$の\alert{既約剰余類群}
+        $(\Z / n\Z)^\times \coloneqq \{\bar{a} \in \Z_n \mid (a, n) = 1\}$ : 法$n$に関する$\Z$の\alert{既約剰余類群}
       \end{defn}
 
       \begin{defn}
-        $\varphi(n) \coloneqq |\{a \in \mathbb{Z} \mid 1 \le a \lt n, (n, a) = 1\}|$ : \alert{Eulerの関数}
+        $\varphi(n) \coloneqq |\{a \in \Z \mid 1 \le a \lt n, (n, a) = 1\}|$ : \alert{Eulerの関数}
       \end{defn}
 
       \begin{thm}
-        $|(\mathbb{Z} / n\mathbb{Z})^\times| = \varphi(n)$
+        $|(\Z / n\Z)^\times| = \varphi(n)$
       \end{thm}
 
       \begin{thm}[Euler]
-        $a, n \in \mathbb{Z}, n \ge 0, (a, n) = 1 \Rightarrow a^{\varphi(n)} \equiv 1 \pmod{n}$
+        $a, n \in \Z, n \ge 0, (a, n) = 1 \Rightarrow a^{\varphi(n)} \equiv 1 \pmod{n}$
       \end{thm}
 
     \end{frame}
@@ -528,11 +545,11 @@
     \begin{frame}
  
       \begin{thm}
-        $p$ : 素数
+        $p$ : prime
         \begin{itemize}
-          \item $|(\mathbb{Z} / p\mathbb{Z})^\times| = p - 1$
-          \item $(\mathbb{Z} / p\mathbb{Z})^\times = \{\bar{a} \in \mathbb{Z}_p \mid \bar{a} \neq \bar{0}\}$
-          \item $(\mathbb{Z} / p\mathbb{Z})^\times$ : 巡回群
+          \item $|(\Z / p\Z)^\times| = p - 1$
+          \item $(\Z / p\Z)^\times = \{\bar{a} \in \Z_p \mid \bar{a} \neq \bar{0}\}$
+          \item $(\Z / p\Z)^\times$ : cyclic group
         \end{itemize}
       \end{thm}
       これらの証明は体論と関係させたほうが都合がよいので第5章 \textsection 2で行う.
@@ -545,19 +562,19 @@
     \begin{frame}
 
       \begin{defn}
-        $R, R'$ : 環, $f\colon R \to R'$ \\
+        $R, R'$ : ring, $f\colon R \to R'$ \\
         $f(1_R) = 1_{R'}, \forall x, y \in R, f(x + y) = f(x) + f(y), f(xy) = f(x)f(y)$ $\defarrow$ $f$ : \alert{準同型写像}
       \end{defn}
       \underline{Rem.} 加法群の準同型写像と区別する場合は\alert{環準同型(写像)}とよぶ
 
       \begin{thm}
-        $R, R', R''$ : 環 \\
+        $R, R', R''$ : ring \\
         $f\colon R \to R' : \hom, g\colon R' \to R'' : \hom \Rightarrow g \circ f \colon R \to R'' : \hom$
       \end{thm}
       \underline{Rem.} \alert{単射準同型}, \alert{全射準同型}, \alert{同型}, \alert{自己同型}などの語の用法は群の場合と同様
 
       \begin{defn}
-        $R, R'$ : 環 \\
+        $R, R'$ : ring \\
         $\exists f\colon R \to R' : \iso$ $\defarrow$ $R \cong R'$ : $R$と$R'$は\alert{同型}
       \end{defn}
       
@@ -567,15 +584,15 @@
 
       \begin{exmText}
         $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
-        $c \in [0, 1], F\colon R \to \mathbb{R}, f \mapsto f(c) \Rightarrow F : \hom$
+        $c \in [0, 1], F\colon R \to \R, f \mapsto f(c) \Rightarrow F : \hom$
       \end{exmText}
 
       \begin{exmText}
-        $f\colon \mathbb{C} \to \mathbb{C}, \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut(\mathbb{C})$
+        $f\colon \C \to \C, \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut(\mathbb{C})$
       \end{exmText}
 
       \begin{exmText}
-        $R = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$ : 環 \\
+        $R = \{a + b\sqrt{2} \mid a, b \in \Z\}$ : ring \\
         $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut(R)$
       \end{exmText}
       
@@ -584,7 +601,7 @@
     \begin{frame}
 
       \begin{exmText}
-        $R$ : 環, $J \ideal R$ \\
+        $R$ : ring, $J \ideal R$ \\
         $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \hom$
       \end{exmText}
 
@@ -593,13 +610,13 @@
       \end{defn}
 
       \begin{thm}
-        $R, R'$ : 環 \\
+        $R, R'$ : ring \\
         $f\colon R \to R' : \hom \Rightarrow f(0_R) = 0_{R'}, f(-x) = -f(x)$
       \end{thm}
 
       \begin{thm}
-        $R, R'$ : 環 \\
-        $f\colon R \to R' : \hom \Rightarrow R' \supset f(R) : \text{環}$
+        $R, R'$ : ring \\
+        $f\colon R \to R' : \hom \Rightarrow R' \supset f(R) : \text{ring}$
       \end{thm}
       
     \end{frame}
@@ -607,18 +624,18 @@
     \begin{frame}
       
       \begin{defn}
-        $R, R'$ : 環, $f\colon R \to R' : \hom$ \\
-        $\Ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核}
+        $R, R'$ : ring, $f\colon R \to R' : \hom$ \\
+        $\Ker f \coloneqq \inverse{f}(0)$ : $f$の\alert{核(kernel)}
       \end{defn}
       \underline{Rem.} $\Ker f$は加法群の準同型としての$f$の核にほかならない
 
       \begin{thm}
-        $R, R'$ : 環 \\
+        $R, R'$ : ring \\
         $f\colon R \to R' : \hom \Rightarrow \Ker f \ideal R$
       \end{thm}
 
       \begin{thm}
-        $R, R'$ : 環, $f\colon R \to R' : \hom$ \\
+        $R, R'$ : ring, $f\colon R \to R' : \hom$ \\
         $\Ker f \neq R \Rightarrow R'\neq \{0\} $
       \end{thm}
 
@@ -632,7 +649,7 @@
       \end{exmText}
 
       \begin{exmText}
-        $R$ : 環 \\
+        $R$ : ring \\
         $\forall J \ideal R, f\colon R \to R/J : \hom \Rightarrow \Ker f = J$
       \end{exmText}
       
@@ -641,16 +658,16 @@
     \begin{frame}
 
       \begin{thm}
-        $R$ : 斜体, $R' \neq \emptyset$ : 環, $f\colon R \to R' : \hom \Rightarrow f : \mon$
+        $R$ : skew field, $R' \neq \emptyset$ : ring, $f\colon R \to R' : \hom \Rightarrow f : \mon$
       \end{thm}
 
       \begin{thmText}[環の準同型定理]
-        $R, R'$ : 環 \\
+        $R, R'$ : ring \\
         $f\colon R \to R' : \hom, \Ker f = J \Rightarrow R/J \cong f(R)$ 
       \end{thmText}
 
       \begin{thmText}
-         $R, R'$ : 環, $f\colon R \to R' : \epi, \Ker f = J$
+         $R, R'$ : ring, $f\colon R \to R' : \epi, \Ker f = J$
         \begin{itemize}
           \item $M \lideal R, M' \lideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
           \item $M \rideal R, M' \rideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
@@ -689,23 +706,23 @@
     \begin{frame}
 
       \begin{lemText}
-        $\forall R : \text{ring} \Rightarrow \exists! \mu\colon \mathbb{Z} \to R : \hom \st \mu(n) = n1_R$ 
+        $\forall R : \text{ring} \Rightarrow \exists! \mu\colon \Z \to R : \hom \st \mu(n) = n1_R$ 
       \end{lemText}
 
       \begin{thm}
-        $R$ : ring, $\mu\colon \mathbb{Z} \to R, n \mapsto n1_R$ \\
+        $R$ : ring, $\mu\colon \Z \to R, n \mapsto n1_R$ \\
         $\forall R' \subset R : \text{subring} \Rightarrow \mu(R) \subset R'$
       \end{thm}
 
       \begin{defn}
-        $\mu\colon \mathbb{Z} \to R, n \mapsto n1_R, \exists! m \ge 0 \st \Ker\mu = (m)$ $\defarrow$ $m$ : $R$の\alert{標数(characteristic)}
+        $\mu\colon \Z \to R, n \mapsto n1_R, \exists! m \ge 0 \st \Ker\mu = (m)$ $\defarrow$ $m$ : $R$の\alert{標数(characteristic)}
       \end{defn}
 
       \begin{thm}
         $R$ : ring, $m$ : characteristic of $R$
         \begin{itemize}
-          \item $m = 0 \Rightarrow \mu(R) \cong \mathbb{Z}$
-          \item $m > 0 \Rightarrow \mu(R) \cong \mathbb{Z}/(m) = \mathbb{Z}_m$
+          \item $m = 0 \Rightarrow \mu(R) \cong \Z$
+          \item $m > 0 \Rightarrow \mu(R) \cong \Z/(m) = \Z_m$
         \end{itemize}
       \end{thm}
       
@@ -724,7 +741,7 @@
     \end{thm} 
 
     \begin{lemText}
-      $R$ : integral domain, $m$ : characteristic of $R$ $\Rightarrow$ $m = 0$ or $m$ : prime number
+      $R$ : integral domain, $m$ : characteristic of $R$ $\Rightarrow$ $m = 0$ or $m$ : prime
     \end{lemText}
 
     \end{frame}
@@ -741,13 +758,13 @@
     \subsection{\sscount 素元分解とその一意性}
     \setcounter{textExmCount}{0}
 
-    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}[i]$}{Z[i]}の素元}
+    \subsection{\sscount \texorpdfstring{ $\Z[i]$}{Z[i]}の素元}
     \setcounter{textExmCount}{0}
 
     \subsection{\sscount 多項式の根, 代数的閉体}
     \setcounter{textExmCount}{0}
 
-    \subsection{\sscount \texorpdfstring{ $\mathbb{Z}$または$\mathbb{Q}$}{ZまたはQ}の上の多項式}
+    \subsection{\sscount \texorpdfstring{ $\Z$または$\mathbb{Q}$}{ZまたはQ}の上の多項式}
     \setcounter{textExmCount}{0}
 
     \subsection{\sscount 多変数の多項式}
