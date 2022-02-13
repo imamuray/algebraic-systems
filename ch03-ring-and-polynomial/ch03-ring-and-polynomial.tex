@@ -25,8 +25,9 @@
 \newcommand{\lt}{\ensuremath <}
 \newcommand{\gt}{\ensuremath >}
 \newcommand{\generator}[1]{\langle#1\rangle}
-\newcommand{\End}{\operatorname{End}}
-\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}[1]{\operatorname{End}(#1)}
+\newcommand{\Aut}[1]{\operatorname{Aut}(#1)}
+\newcommand{\Frac}[1]{\operatorname{Frac}(#1)}
 \newcommand{\Ker}{\operatorname{Ker}}
 \newcommand{\lideal}{\trianglelefteq_l}
 \newcommand{\rideal}{\trianglelefteq_r}
@@ -157,14 +158,14 @@
 
         \begin{defn}
           $\forall A$ : additive group, $f\colon A \to A : \hom$ : \alert{自己準同型(endomorphism)} \\
-          $\End(A) \coloneqq \{f \mid f\colon A \to A : \hom \}$
+          $\End{A} \coloneqq \{f \mid f\colon A \to A : \hom \}$
         \end{defn}
 
         \begin{exmText}
           $\forall A$ : additive group, \\
-          $f, g \in \End(A), \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(g(x)) \Rightarrow \End(A) : \text{ring}$
+          $f, g \in \End{A}, \forall x \in A, (f + g)(x) = f(x) + g(x), (fg)(x) = f(g(x)) \Rightarrow \End{A} : \text{ring}$
         \end{exmText}
-        \underline{Rem.} $\End(A)$ : \alert{自己準同型環(endomorphism ring)}
+        \underline{Rem.} $\End{A}$ : \alert{自己準同型環(endomorphism ring)}
         
       \end{frame}
 
@@ -242,8 +243,8 @@
       \begin{exmText}
         $A$ : additive group, $A \ne \{0\}$
         \begin{itemize}
-          \item $f \in \End(A), f: \text{unit} \Rightarrow f: \text{iso.}$
-          \item $G = \{f \in \End(A) \mid f: \text{unit}\} \Rightarrow G = \Aut(A)$
+          \item $f \in \End{A}, f: \text{unit} \Rightarrow f: \text{iso.}$
+          \item $G = \{f \in \End{A} \mid f: \text{unit}\} \Rightarrow G = \Aut{A}$
         \end{itemize}
       \end{exmText}
 
@@ -340,8 +341,8 @@
       \begin{exmText}
         $\C$ : 複素数の加法群, $A = \C \times \C$
         \begin{enumerate}
-          \item $\alpha, \beta \in \C, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End(A)$
-          \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : subring of $\End(A)$
+          \item $\alpha, \beta \in \C, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End{A}$
+          \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : subring of $\End{A}$
           \item $Q$ : noncommutative ring
         \end{enumerate}
       \end{exmText}
@@ -588,12 +589,12 @@
       \end{exmText}
 
       \begin{exmText}
-        $f\colon \C \to \C, \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut(\mathbb{C})$
+        $f\colon \C \to \C, \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut{\C}$
       \end{exmText}
 
       \begin{exmText}
         $R = \{a + b\sqrt{2} \mid a, b \in \Z\}$ : ring \\
-        $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut(R)$
+        $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut{R}$
       \end{exmText}
       
     \end{frame}
@@ -636,7 +637,7 @@
 
       \begin{thm}
         $R, R'$ : ring, $f\colon R \to R' : \hom$ \\
-        $\Ker f \neq R \Rightarrow R'\neq \{0\} $
+        $R'\neq \{0\} \Rightarrow \Ker f \neq R$
       \end{thm}
 
     \end{frame}
@@ -749,6 +750,107 @@
     \subsection{\sscount 商の体}
     \setcounter{textExmCount}{0}
 
+    \begin{frame}
+
+      \begin{thm}
+        $R : \text{ring}, R \neq \{0\}, F : \text{field}, \exists f\colon R \to F : \mon \Rightarrow R : \text{integral domain}$
+      \end{thm}
+
+      \begin{thm}
+        $R, R' : \text{ring}, f\colon R \to R' : \mon \Rightarrow R \cong f(R) : \text{subring of $R'$}$
+      \end{thm}
+
+      \begin{defn}
+        $R, R' : \text{ring}$
+        \begin{itemize}
+          \item $f\colon R \to R' : \mon$ : $R$から$R'$への\alert{埋め込み(embedding)}
+          \item $\exists f\colon R \to R' : \mon$ : $R$は$R'$(の中)に\alert{埋め込み可能}
+        \end{itemize}
+      \end{defn}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{lemText}
+        $F$ : field, $R$ : subring of $F$
+        \begin{itemize}
+          \item $\Frac{R} \coloneqq \{a/b \mid a,b \in R, b \neq 0\} \Rightarrow \Frac{R} : \text{subfield of $F$}$ 
+          \item $\forall F' : \text{subfield of $F$}, R \subset F' \Rightarrow \Frac{R} \subset F'$
+        \end{itemize}
+      \end{lemText}
+
+      \begin{defn}
+        $F$ : field, $R$ : subring of $F$ \\
+        $\Frac{R}$ : $R$の($F$における)\alert{商の体(field of quotients)}または\alert{分数体(fraction field)}
+      \end{defn}
+      \underline{Rem.} 商体(quotient field)と呼ばれることもあるが, \textsection 3 の商環と概念上まぎらわしいため, 本書では上記のような語を用いる.
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $R$ : integral domain, $R^* = \{ a \in R \mid a \neq 0\}$ \\
+        $(a, b), (a', b') \in R \times R^*, ab' = a'b \defarrow (a, b) \sim (a', b')$
+      \end{defn}
+
+      \begin{thm}
+        $\sim$ : $R \times R^*$における同値関係
+      \end{thm}
+
+      \begin{defn}
+        $[a, b] \coloneqq \{(a', b') \in R \times R' \mid (a, b) \sim (a', b')\}$ \\
+        $K \coloneqq \{[a, b] \mid a, b \in R\}$
+      \end{defn}
+
+      \begin{thm}
+        $\forall [a, b], [a', b'] \in K, [a, b] = [a', b'] \Leftrightarrow ab' = a'b$
+      \end{thm}
+
+      \begin{thm}
+        $\forall [a, b], [c, d] \in K, [a, b] + [c, d] = [ad + bc, bd], [a, b][c, d] = [ac, bd] \Rightarrow K : \text{field}$
+      \end{thm}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thmText}
+        $R : \text{integral domain} \Rightarrow \exists K : \text{field}, \varphi\colon R \to K : \hom \st$
+        \begin{enumerate}
+          \item $\varphi$ : $R$の$K$への埋め込み
+          \item $\forall k \in K, \exists a, b \in R \st b \neq 0, k = \varphi(a) / \varphi(b)$
+        \end{enumerate}
+      \end{thmText}
+
+      \begin{defn}
+        $K$ : ($\varphi\colon R \to K$と合わせて)$R$の\alert{商の体}または\alert{分数体}
+      \end{defn}
+
+      \begin{thm}
+        $F$ : field, $K$ : fraction field \\
+        $R : \text{subring of $F$} \Rightarrow \Frac{R} \cong K$
+      \end{thm}
+      \underline{Rem.} 以後, $a \in R$と$\varphi(a) \in K$とを同一視することにする. \\
+      そうすれば, $R \subset K, \forall k \in K, \exists a, b \in R, b \neq 0, k = a/b$
+
+      \begin{exm}
+        $\Q \coloneqq \Frac{\Z}$
+      \end{exm}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{lemText}
+        $R$ : integral domain, $E$ : field, $f\colon R \to E$ : embedding, $K = \Frac{R}$ \\
+        $\Rightarrow$ $\exists! f^* \st f^*\colon K \to E : \text{embedding}, f = f^*\vert_R$
+      \end{lemText}
+      \underline{Rem.} Lem. H は Lem. G をより精密にしたもの.
+      
+    \end{frame}
+
     \subsection{\sscount 多項式環}
     \setcounter{textExmCount}{0}
 
@@ -764,7 +866,7 @@
     \subsection{\sscount 多項式の根, 代数的閉体}
     \setcounter{textExmCount}{0}
 
-    \subsection{\sscount \texorpdfstring{ $\Z$または$\mathbb{Q}$}{ZまたはQ}の上の多項式}
+    \subsection{\sscount \texorpdfstring{ $\Z$または$\Q$}{ZまたはQ}の上の多項式}
     \setcounter{textExmCount}{0}
 
     \subsection{\sscount 多変数の多項式}
