@@ -32,6 +32,9 @@
 \newcommand{\lideal}{\trianglelefteq_l}
 \newcommand{\rideal}{\trianglelefteq_r}
 \newcommand{\ideal}{\trianglelefteq}
+\newcommand{\inj}{\text{inj.}}
+\newcommand{\surj}{\text{surj.}}
+\newcommand{\bij}{\text{bij.}}
 \renewcommand{\hom}{\text{hom.}} % 準同型: homomorphism
 \newcommand{\mon}{\text{mon.}} % 単射準同型: monomorphism
 \newcommand{\epi}{\text{epi.}} % 全射準同型: epimorphism
@@ -341,7 +344,7 @@
       \begin{exmText}
         $\C$ : 複素数の加法群, $A = \C \times \C$
         \begin{enumerate}
-          \item $\alpha, \beta \in \C, f_{\alpha, \beta}\colon A \to A, (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End{A}$
+          \item $\alpha, \beta \in \C, f_{\alpha, \beta}\colon A \to A ; (x,y) \mapsto (\alpha x - \beta y, \bar{\beta} x + \bar{\alpha} y) \Rightarrow f_{\alpha, \beta} \in \End{A}$
           \item $Q = \{f_{\alpha, \beta} \mid \text{上記$f_{\alpha, \beta}$}\}$ $\Rightarrow$ $Q$ : subring of $\End{A}$
           \item $Q$ : noncommutative ring
         \end{enumerate}
@@ -585,16 +588,16 @@
 
       \begin{exmText}
         $R = \{f \mid f\colon [0, 1] \to [0, 1] : \text{連続関数}\}$ \\
-        $c \in [0, 1], F\colon R \to \R, f \mapsto f(c) \Rightarrow F : \hom$
+        $c \in [0, 1], F\colon R \to \R ; f \mapsto f(c) \Rightarrow F : \hom$
       \end{exmText}
 
       \begin{exmText}
-        $f\colon \C \to \C, \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut{\C}$
+        $f\colon \C \to \C ; \alpha \mapsto \bar{\alpha} \Rightarrow f \in \Aut{\C}$
       \end{exmText}
 
       \begin{exmText}
         $R = \{a + b\sqrt{2} \mid a, b \in \Z\}$ : ring \\
-        $f\colon R \to R, a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut{R}$
+        $f\colon R \to R ; a + b\sqrt{2} \mapsto a - b\sqrt{2} \Rightarrow f \in \Aut{R}$
       \end{exmText}
       
     \end{frame}
@@ -603,11 +606,11 @@
 
       \begin{exmText}
         $R$ : ring, $J \ideal R$ \\
-        $\varphi \colon R \to R/J, a \mapsto \bar{a} \Rightarrow \varphi : \hom$
+        $\varphi \colon R \to R/J ; a \mapsto \bar{a} \Rightarrow \varphi : \hom$
       \end{exmText}
 
       \begin{defn}
-        $\varphi \colon R \to R/J, a \mapsto \bar{a} : \hom$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
+        $\varphi \colon R \to R/J ; a \mapsto \bar{a} : \hom$ : \alert{標準的準同型写像}または\alert{自然な準同型写像}
       \end{defn}
 
       \begin{thm}
@@ -668,11 +671,10 @@
       \end{thmText}
 
       \begin{thmText}
-         $R, R'$ : ring, $f\colon R \to R' : \epi, \Ker f = J$
+         $R, R'$ : ring, $f\colon R \to R' : \epi, \Ker f = J$ \\
         \begin{itemize}
-          \item $M \lideal R, M' \lideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
-          \item $M \rideal R, M' \rideal R', J \subset M \Rightarrow f(M) = M', \inverse{f}(M') = M$
-          \item $M \ideal R \Leftrightarrow M' \ideal R'$
+          \item $\Omega = \{M \mid M \lideal(\rideal) R, J \subset M\}, \; \Omega' = \{M' \mid M' \lideal(\rideal) R'\}$ \\ 
+                $\phi\colon \Omega \to \Omega' ; M \mapsto f(M), \; \psi\colon \Omega' \to \Omega ; M' \mapsto \inverse{f}(M') \Rightarrow \phi, \psi : \bij, \inverse{\phi} = \psi$
           \item $M \ideal R, M' \ideal R' \Rightarrow R/M \cong R'/M'$
         \end{itemize}       
       \end{thmText}
@@ -683,14 +685,15 @@
 
       \begin{defn}
         $R : \text{ring}, \; J_L \lideal R, J_R \rideal R, \; J_L, J_R \neq R$ \\
-        $\forall J \lideal (\rideal) R, \; J_L(J_R) \subset J \Rightarrow J = R \; \text{or} \; J_L(J_R)$ \\
-        $\defarrow$ $J_L(J_R)$ : $R$の\alert{極大左(右)イデアル(maximal left (right) ideal)}
+        $\forall M \lideal (\rideal) R, \; J_L(J_R) \subset M \Rightarrow M = R \; \text{or} \; J_L(J_R)$ \\
+        $\defarrow$ $J_L(J_R)$ : $R$の\alert{極大左(右)イデアル(maximal left (right) ideal)} \\
+        $J_L = J_R$ $\defarrow$ $J_L, J_R$ : \alert{極大イデアル(maximal ideal)}
       \end{defn}
 
-      \begin{defn}
+      \begin{thm}
         $R : \text{ring}, \; J_L \lideal R : \text{maximal}, J_R \rideal R : \text{maximal}, \; J_L, J_R \neq R$ \\
-        $R : \text{commutative} \Rightarrow J_L = J_R$ : \alert{極大イデアル(maximal ideal)}
-      \end{defn}
+        $R : \text{commutative} \Rightarrow J_L = J_R$ 
+      \end{thm}
 
       \begin{thmText}
         $R : \text{ring}, \; J \ideal R, \; J \neq R$ \\
@@ -711,12 +714,12 @@
       \end{lemText}
 
       \begin{thm}
-        $R$ : ring, $\mu\colon \Z \to R, n \mapsto n1_R$ \\
+        $R$ : ring, $\mu\colon \Z \to R ; n \mapsto n1_R$ \\
         $\forall R' \subset R : \text{subring} \Rightarrow \mu(R) \subset R'$
       \end{thm}
 
       \begin{defn}
-        $\mu\colon \Z \to R, n \mapsto n1_R, \exists! m \ge 0 \st \Ker\mu = (m)$ $\defarrow$ $m$ : $R$の\alert{標数(characteristic)}
+        $\mu\colon \Z \to R ; n \mapsto n1_R, \exists! m \ge 0 \st \Ker\mu = (m)$ $\defarrow$ $m$ : $R$の\alert{標数(characteristic)}
       \end{defn}
 
       \begin{thm}
