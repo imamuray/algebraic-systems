@@ -44,6 +44,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 
 \newcommand{\sscount}{\textsection \thesubsection}
 
@@ -696,7 +697,7 @@
       \end{thm}
 
       \begin{defn}
-        $R : \text{commutative ring}, \; J \ideal R\; J \neq R$ \\
+        $R : \text{commutative ring}, \; J \ideal R, \; J \neq R$ \\
         $\forall M \ideal R, \; J \subset M \Rightarrow M = R \; \text{or} \; J$ $\defarrow$ $J$ : $R$の\alert{極大イデアル(maximal ideal)}
       \end{defn}
      
@@ -780,21 +781,31 @@
           \item $\exists f\colon R \to R' : \mon$ : $R$は$R'$(の中)に\alert{埋め込み可能}
         \end{itemize}
       \end{defn}
-      
+ 
+      \begin{defn}
+        $F : \text{field}, R \subset F : \text{subring}$ \\
+        $a, b \in R, b \neq 0, a\inverse{b} = \inverse{a}b$ $\defarrow$ $a/b$ : $a, b$から作られる商または分数
+      \end{defn}
+     
     \end{frame}
 
     \begin{frame}
 
+      \begin{thm}
+        $F : \text{field}, R \subset F : \text{subring}$ \\
+        $\forall a, b, a', b' \in R, a/b = a'/b' \Leftrightarrow ab' = a'b$
+      \end{thm}
+
       \begin{lemText}
-        $F$ : field, $R$ : subring of $F$
+        $F : \text{field}, R \subset F : \text{subring}$ \\
         \begin{itemize}
-          \item $\Frac{R} \coloneqq \{a/b \mid a,b \in R, b \neq 0\} \Rightarrow \Frac{R} : \text{subfield of $F$}$ 
-          \item $\forall F' : \text{subfield of $F$}, R \subset F' \Rightarrow \Frac{R} \subset F'$
+          \item $\Frac{R} \coloneqq \{a/b \mid a,b \in R, b \neq 0\} \Rightarrow \Frac{R} \subset F : \text{subfield}$ 
+          \item $\forall F' \subset F : \text{subfield}, R \subset F' \Rightarrow \Frac{R} \subset F'$
         \end{itemize}
       \end{lemText}
 
       \begin{defn}
-        $F$ : field, $R$ : subring of $F$ \\
+        $F : \text{field}, R \subset F : \text{subring}$ \\
         $\Frac{R}$ : $R$の($F$における)\alert{商の体(field of quotients)}または\alert{分数体(fraction field)}
       \end{defn}
       \underline{Rem.} 商体(quotient field)と呼ばれることもあるが, \textsection 3 の商環と概念上まぎらわしいため, 本書では上記のような語を用いる.
