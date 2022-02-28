@@ -17,7 +17,7 @@
 |Lem.|補題|Lem. `t` または Thm. `sec`.`n`|
 |Cor.|系|Cor. `thm`.`t`|
 |Exm.|例|Exm. `t` または Exm. `sec`.`n`|
-|Exc.|問題|Enc. `t`|
+|Exc.|問題|Exc. `t`|
 
 - `t` : 教科書の番号と対応
 - `thm` : 教科書の定理番号と対応
