@@ -773,6 +773,7 @@
       \begin{thm}
         $R, R' : \text{ring}, f\colon R \to R' : \mon \Rightarrow R \cong f(R)$
       \end{thm}
+      これより, $R$を$R'$の部分環として考えることができる.
 
       \begin{defn}
         $R, R' : \text{ring}$
@@ -799,14 +800,14 @@
       \begin{lemText}
         $F : \text{field}, R \subset F : \text{subring}$ \\
         \begin{itemize}
-          \item $\Frac{R} \coloneqq \{a/b \mid a,b \in R, b \neq 0\} \Rightarrow \Frac{R} \subset F : \text{subfield}$ 
-          \item $\forall F' \subset F : \text{subfield}, R \subset F' \Rightarrow \Frac{R} \subset F'$
+          \item $L \coloneqq \{a/b \mid a,b \in R, b \neq 0\} \Rightarrow L \subset F : \text{subfield}$ 
+          \item $\forall L' \subset F : \text{subfield}, R \subset L' \Rightarrow L \subset L'$
         \end{itemize}
       \end{lemText}
 
       \begin{defn}
         $F : \text{field}, R \subset F : \text{subring}$ \\
-        $\Frac{R}$ : $R$の($F$における)\alert{商の体(field of quotients)}または\alert{分数体(fraction field)}
+        $L$ : $R$の($F$における)\alert{商の体(field of quotients)}または\alert{分数体(fraction field)}
       \end{defn}
       \underline{Rem.} 商体(quotient field)と呼ばれることもあるが, \textsection 3 の商環と概念上まぎらわしいため, 本書では上記のような語を用いる.
       
@@ -843,7 +844,7 @@
       \begin{thmText}
         $R : \text{integral domain} \Rightarrow \exists K : \text{field}, \varphi\colon R \to K : \hom \st$
         \begin{enumerate}
-          \item $\varphi$ : $R$の$K$への埋め込み
+          \item $\varphi$ : embedding
           \item $\forall k \in K, \exists a, b \in R \st b \neq 0, k = \varphi(a) / \varphi(b)$
         \end{enumerate}
       \end{thmText}
@@ -854,19 +855,24 @@
 
       \begin{thm}
         $F$ : field, $K$ : fraction field \\
-        $R \subset F : \text{subring} \Rightarrow \Frac{R} \cong K$
+        $R \subset F : \text{subring} \Rightarrow L \cong K$
       \end{thm}
       \underline{Rem.} 以後, $a \in R$と$\varphi(a) \in K$とを同一視することにする. \\
       そうすれば, $R \subset K, \forall k \in K, \exists a, b \in R, b \neq 0, k = a/b$
 
-      \begin{exm}
-        $\Q \coloneqq \Frac{\Z}$
-      \end{exm}
-      
-    \end{frame}
+   \end{frame}
 
     \begin{frame}
 
+      \begin{defn}
+        $R$ : integral domain \\
+        $\Frac{R} \coloneqq \{a/b \mid a, b \in R, b \neq 0\}$
+      \end{defn}
+
+      \begin{exm}
+        $\Q \coloneqq \Frac{\Z}$
+      \end{exm}
+ 
       \begin{lemText}
         $R$ : integral domain, $E$ : field, $f\colon R \to E$ : embedding, $K = \Frac{R}$ \\
         $\Rightarrow$ $\exists! f^* \st f^*\colon K \to E : \text{embedding}, f = f^*\vert_R$
