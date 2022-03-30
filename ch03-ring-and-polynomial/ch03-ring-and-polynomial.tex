@@ -825,8 +825,8 @@
       \end{thm}
 
       \begin{defn}
-        $[a, b] \coloneqq \{(a', b') \in R \times R' \mid (a, b) \sim (a', b')\}$ \\
-        $K \coloneqq \{[a, b] \mid a, b \in R\}$
+        $[a, b] \coloneqq \{(a', b') \in R \times R^* \mid (a, b) \sim (a', b')\}$ \\
+        $K \coloneqq \{[a, b] \mid a \in R, b \in R^*\}$
       \end{defn}
 
       \begin{thm}
@@ -854,8 +854,7 @@
       \end{defn}
 
       \begin{thm}
-        $F$ : field, $K$ : fraction field \\
-        $R \subset F : \text{subring} \Rightarrow L \cong K$
+        $F : \text{field}, R \subset F : \text{subring} \Rightarrow L \cong K$ (ただし$L$ : Def.6.3, $K$ : Def.6.6)
       \end{thm}
       \underline{Rem.} 以後, $a \in R$と$\varphi(a) \in K$とを同一視することにする. \\
       そうすれば, $R \subset K, \forall k \in K, \exists a, b \in R, b \neq 0, k = a/b$
@@ -887,26 +886,34 @@
     \begin{frame}
 
       \begin{defn}
-        $a_0, \cdots, a_m \in \R, x \in \R : \text{variable}$ \\
-        $x \mapsto a_0 + a_1 x + \cdots + a_m x^m$ : \alert{多項式写像}または\alert{多項式関数(polynomial function)}
+        $a_0, \cdots, a_m \in \R, x : \text{variable}$ \\
+        $a_0 + a_1 x + \cdots + a_m x^m$ : 多項式(polynomial)
       \end{defn}
 
       \begin{defn}
-        $R$ : commutative ring, $R \neq 0$, $\tilde{P} \coloneqq \{f \mid f\colon \N \to R\}$ \\
-        $f \in \tilde{P}, f\{n\} = a_n, f = (a_0, a_1, a_2, \cdots) = (a_n)_{n \ge 0} = (a_n)$
+        $a_0, \cdots, a_m \in \R, x : \text{variable}$ \\
+        $f\colon \R \to \R; x \mapsto a_0 + a_1 x + \cdots + a_m x^m$ : \alert{多項式写像} or \alert{多項式関数}
       \end{defn}
-      \underline{Rem.} 後に用いる$f(x)$などの表記と区別するため$f\{n\}$とかく.
+
+      \begin{defn}
+        $R$ : commutative ring, $R \neq 0$ \\
+        $\tilde{P} \coloneqq \{f \mid f\colon \N \to R\}, a_n \coloneqq f(n)$
+      \end{defn}
+
+      \begin{thm}
+        $f \in \tilde{P} \Rightarrow f = (a_0, a_1, a_2, \cdots) = (a_n)_{n \ge 0} = (a_n)$
+      \end{thm}
+     
+    \end{frame}
+
+    \begin{frame}
 
       \begin{thm}
         $\forall f, g \in \tilde{P}, f = (a_n), g = (b_n)$ \\
         $f + g = (a_n + b_n), \; fg = \displaystyle\sum_{i = 0}^{n} a_i b_{n - i} \Rightarrow \tilde{P} : \text{commutative ring}$
       \end{thm}
       \underline{Rem.} $\tilde{P}$と$M(\N, R)$は集合として同じで加法の定義も同じだが, 乗法の定義は異なっている.
-      
-    \end{frame}
-
-    \begin{frame}
-
+ 
       \begin{defn}
         \begin{itemize}
           \item $\forall a \in R, \; \bar{a}\colon \N \to R, \bar{a}\{0\} = n, \bar{a}\{n\} = 0 \; (n \neq 0), \bar{a} = (a, 0, 0, 0, \cdots)$
@@ -920,11 +927,15 @@
           \item $\bar{a}x^i\{i\} = a, \bar{a}x^i\{n\} = 0 \; (n \neq i)$
         \end{itemize}
       \end{thm}
+    
+    \end{frame}
 
+    \begin{frame}
+ 
       \begin{defn}
         $P \coloneqq \{f \in \tilde{P} \mid \exists N \in \N \st \forall k \in \N, k \gt N, a_k = 0\}$
       \end{defn}
-
+ 
       \begin{thm}
         \begin{itemize}
           \item $P \subset \tilde{P}$ : subring
