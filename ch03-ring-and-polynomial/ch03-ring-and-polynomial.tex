@@ -897,12 +897,13 @@
 
       \begin{defn}
         $R$ : commutative ring, $R \neq 0$ \\
-        $\tilde{P} \coloneqq \{f \mid f\colon \N \to R\}, a_n \coloneqq f(n)$
+        $\tilde{P} \coloneqq \{f \mid f\colon \N \to R\}, a_n \coloneqq f\{n\}$
       \end{defn}
 
       \begin{thm}
-        $f \in \tilde{P} \Rightarrow f = (a_0, a_1, a_2, \cdots) = (a_n)_{n \ge 0} = (a_n)$
+        $f \in \tilde{P} \Rightarrow f = (a_0, a_1, a_2, \cdots)$
       \end{thm}
+      \underline{Rem.} $f = (a_0, a_1, a_2, \cdots)$ は簡単に $(a_n)_{n \ge 0}$, 略して $(a_n)$ とも表す.
      
     \end{frame}
 
@@ -910,21 +911,22 @@
 
       \begin{thm}
         $\forall f, g \in \tilde{P}, f = (a_n), g = (b_n)$ \\
-        $f + g = (a_n + b_n), \; fg = \displaystyle\sum_{i = 0}^{n} a_i b_{n - i} \Rightarrow \tilde{P} : \text{commutative ring}$
+        $f + g = (a_n + b_n), \; fg = \displaystyle\sum_{i + j = n} a_i b_j \Rightarrow \tilde{P} : \text{commutative ring}$
       \end{thm}
       \underline{Rem.} $\tilde{P}$と$M(\N, R)$は集合として同じで加法の定義も同じだが, 乗法の定義は異なっている.
  
       \begin{defn}
         \begin{itemize}
-          \item $\forall a \in R, \; \bar{a}\colon \N \to R, \bar{a}\{0\} = n, \bar{a}\{n\} = 0 \; (n \neq 0), \bar{a} = (a, 0, 0, 0, \cdots)$
-          \item $x\colon \N \to R, x\{1\} = 1, x\{n\} = 0 \; (n \neq 1), x = (0, 1, 0, 0, \cdots)$
+          \item $\forall a \in R, \; \bar{a}\colon \N \to R; \bar{a}\{0\} = a, \bar{a}\{n\} = 0 \; (n \neq 0)$
+          \item $x\colon \N \to R; x\{1\} = 1, x\{n\} = 0 \; (n \neq 1)$
         \end{itemize}
       \end{defn}
+      \underline{Rem.} $\bar{a} = (a, 0, 0, 0, \cdots), x = (0, 1, 0, 0, \cdots)$
 
       \begin{thm}
         \begin{itemize}
-          \item $x^i\{i\} = 1, x^i\{n\} = 0 \; (n \neq i)$
-          \item $\bar{a}x^i\{i\} = a, \bar{a}x^i\{n\} = 0 \; (n \neq i)$
+          \item $x^i\colon \N \to R; x^i\{i\} = 1, x^i\{n\} = 0 \; (n \neq i)$
+          \item $\bar{a}x^i\colon \N \to R; \bar{a}x^i\{i\} = a, \bar{a}x^i\{n\} = 0 \; (n \neq i)$
         \end{itemize}
       \end{thm}
     
@@ -940,7 +942,69 @@
         \begin{itemize}
           \item $P \subset \tilde{P}$ : subring
           \item $\forall f \in P, f = (a_0, \cdots, a_m, 0, \cdots)\Rightarrow f = \bar{a}_0 + \bar{a}_1 x + \cdots + \bar{a}_m x^m$
+          \item $\phi\colon R \to P; a \mapsto \bar{a}$ : embedding
         \end{itemize}
+      \end{thm}
+
+      \begin{thm}
+        $\forall f \in P \Rightarrow \exists! a_0, \cdots, a_m \in R \st f = a_0 + a_1 x + \cdots + a_m x^m$
+      \end{thm}
+
+      \begin{defn}
+        \begin{itemize}
+          \item $R[x] \coloneqq P$ : $R$上の\alert{多項式環(polynomial ring)}
+          \item $f \in R[x]$ : \alert{多項式}, $R$ : \alert{係数環}, $x$ : \alert{変数} or \alert{不定元(indeterminate)}
+        \end{itemize}
+      \end{defn}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{defn}
+        $f \in R[x]$
+        \begin{itemize}
+          \item $f(x) = a_0 + a_1 x + \cdots + a_m x^m, a_m \neq 0 \defarrow \deg f \coloneqq m$ : $f$の\alert{次数(degree)}
+          \item $\deg 0 = - \infty, \forall m \in \N, - \infty \lt m$
+          \item $\deg f = 0 \; \text{or} \; - \infty \defarrow f$ : \alert{定数(constant)}
+        \end{itemize}
+      \end{defn}
+
+      \begin{thm}
+        $f \in R[x] : \text{constant} \Rightarrow f \in R$
+      \end{thm}
+
+      \begin{defn}
+        $f \in R[x], f(x) = a_0 + a_1 x + \cdots + a_m x^m$
+        \begin{itemize}
+          \item $a_m x^m$ : \alert{主項}, $a_m$ : \alert{主係数}
+          \item $a_m = 1 \defarrow f$ : \alert{モニック(monic)}
+        \end{itemize}
+      \end{defn}
+      
+    \end{frame}
+
+    \begin{frame}
+
+      \begin{thm}
+        $f, g \in R[x] \Rightarrow \deg (fg) \le \deg f + \deg g$, $R$ : integral domain のとき等号成立
+      \end{thm}
+
+      \begin{lemText}
+        $R$ : integral domain $\Rightarrow$ $R[x]$ : integral domain
+      \end{lemText}
+
+      \begin{defn}
+        $R$ : 可換環, $R_1 \supset R$ : 拡大可換環, $ c \in R_1, R[x] \ni f(x) = a_0 + a_1 x + \cdots + a_m x^m$ \\
+        $R_1 \ni f(c) \coloneqq a_0 + a_1 c + \cdots + a_m c^m$ : $x$に$c$を\alert{代入(substitute)}した元
+      \end{defn}
+
+      \begin{thm}
+        $\Phi\colon R[x] \to R_1; f \mapsto f(c) : \hom$
+      \end{thm}
+
+      \begin{thm}
+        $\forall R' \subset R_1 : \text{subring}, \forall r \in R, r \in R', c \in R' \Rightarrow R[c] \subset R'$
       \end{thm}
       
     \end{frame}
